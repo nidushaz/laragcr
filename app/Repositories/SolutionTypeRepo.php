@@ -25,6 +25,16 @@ class SolutionTypeRepo
         $data = $this->em->getRepository(SolutionType::class)->findBy(['deleted' => 0]);
         return $data;
     }
+
+    public function getSolutionType($id){
+        return $this->em->getRepository(SolutionType::class)->find($id);
+    }
+
+    public function getIsActive()
+    {
+        return $this->em->getRepository(SolutionType::class)->findBy(['deleted' => 0,'isActive' =>1]);
+    }
+
     public  function getActiveSolutionType($id){
         return $this->em->getRepository(SolutionType::class)->find($id);
     }

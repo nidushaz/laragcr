@@ -28,14 +28,6 @@ class Provider
      */
     private $id;
 
-
-    /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="provider")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     */
-    private $userId;
-
-
     /**
      * @ORM\Column(type="string")
      */
@@ -78,17 +70,29 @@ class Provider
     private $address;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ProviderIndustry", inversedBy="providerId")
-     * @ORM\JoinColumn(name="industry_id", referencedColumnName="id")
-     */
-    private $providerIndustryId;
-
-
-    /**
      * @ORM\OneToMany(targetEntity="Product", mappedBy="productProviderId")
      */
     private $productProvider;
 
+    /**
+     * @ORM\Column(type="string",options={"unsigned":true, "default":0})
+     */
+    private $deleted;
+
+    /**
+     * @ORM\Column(type="boolean",options={"unsigned":true, "default":0})
+     */
+    private $isActive;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime",nullable=true)
+     */
+    private $updatedAt;
 
     /**
      * @return mixed
@@ -104,22 +108,6 @@ class Provider
     public function setId($id)
     {
         $this->id = $id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAdminId()
-    {
-        return $this->adminId;
-    }
-
-    /**
-     * @param mixed $adminId
-     */
-    public function setAdminId($adminId)
-    {
-        $this->adminId = $adminId;
     }
 
     /**
@@ -170,21 +158,6 @@ class Provider
         $this->productProvider = $productProvider;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getUserId()
-    {
-        return $this->userId;
-    }
-
-    /**
-     * @param mixed $userId
-     */
-    public function setUserId($userId)
-    {
-        $this->userId = $userId;
-    }
 
     /**
      * @return mixed
@@ -285,17 +258,65 @@ class Provider
     /**
      * @return mixed
      */
-    public function getProviderIndustryId()
+    public function getDeleted()
     {
-        return $this->providerIndustryId;
+        return $this->deleted;
     }
 
     /**
-     * @param mixed $providerIndustryId
+     * @param mixed $deleted
      */
-    public function setProviderIndustryId($providerIndustryId)
+    public function setDeleted($deleted)
     {
-        $this->providerIndustryId = $providerIndustryId;
+        $this->deleted = $deleted;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getisActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param mixed $isActive
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param mixed $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param mixed $updatedAt
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
     }
 
 

@@ -63,7 +63,7 @@ class VideosServiceImpl implements  VideosService
 
     public function getActiveVideos()
     {
-        // TODO: Implement getActiveVideos() method.
+        return $this->videosRepo->getActiveVideos();
     }
 
     public function getVideoById($id)
@@ -71,6 +71,10 @@ class VideosServiceImpl implements  VideosService
         return $this->videosRepo->getVideoById($id);
     }
 
+    public function getVideoByCatId($id)
+    {
+        return $this->videosRepo->getVideoByCatId($id);
+    }
     public function setArray($data)
     {
         $exp_centre = new Videos();
@@ -104,4 +108,11 @@ class VideosServiceImpl implements  VideosService
     {
         return $this->videosRepo->removeVideo($id);
     }
+
+    public function getActiveVideosByLimit($limit)
+    {
+        $this->videosRepo->getActiveVideosByLimit($limit);
+    }
+
+
 }

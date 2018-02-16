@@ -42,4 +42,14 @@ class SolutionTypeServiceImpl implements  SolutionTypeService
     {
        return $this->solutionRepo->getTags();
     }
+
+    public function getIsActive()
+    {
+        return $this->solutionRepo->getIsActive();
+    }
+
+    public function getSolutionType($id)
+    {
+       return $this->solutionRepo->getSolutionType($id);
+    }
 }

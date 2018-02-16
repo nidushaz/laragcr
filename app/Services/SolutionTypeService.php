@@ -12,6 +12,8 @@ namespace App\Services;
 interface SolutionTypeService
 {
     public function getAllActiveSolutionType();
+    public function getSolutionType($id);
+    public function getIsActive();
     public function addSolutionType($data);
     public function updateSolutionType($data,$id);
     public function getActiveSolutionType($id);

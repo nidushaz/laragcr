@@ -21,4 +21,16 @@ class UploadService
 
     }
 
+    public function UploadMulFile($data,$fileName,$dir){
+        if($data->file($fileName)){
+            $url =[];
+            foreach ($data->file($fileName) as $key => $file) {
+                $origName = $file->getClientOriginalName();
+                $file->storeAs('public/'.$dir,time().$origName);
+                $url[]= asset('storage/'.$dir.'/'.time().$origName);
+            }
+            return $url;
+        }
+    }
+
 }

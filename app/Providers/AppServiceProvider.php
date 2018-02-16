@@ -3,12 +3,21 @@
 namespace App\Providers;
 
 
+use App\Services\AdService;
 use App\Services\CategoryService;
+use App\Services\ClientTestimonialService;
+use App\Services\ContactService;
 use App\Services\CountryService;
+use App\Services\Impl\AdServiceImpl;
 use App\Services\Impl\CategoryServiceImpl;
+use App\Services\Impl\ClientTestimonialServieImpl;
+use App\Services\Impl\ContactServiceImpl;
 use App\Services\Impl\CountryServiceImpl;
 use App\Services\Impl\IndustryServiceImpl;
+use App\Services\Impl\NewsServiceImpl;
+use App\Services\Impl\OfficeServiceImpl;
 use App\Services\Impl\PageBannerServiceImpl;
+use App\Services\Impl\ProductServiceImpl;
 use App\Services\Impl\ProductTypeServiceImpl;
 use App\Services\Impl\SolutionPartnerServiceImpl;
 use App\Services\Impl\SolutionTypeServiceImpl;
@@ -16,10 +25,13 @@ use App\Services\Impl\TagServiceImpl;
 use App\Services\Impl\TestServiceImpl;
 use App\Services\Impl\VideosServiceImpl;
 use App\Services\IndustryService;
+use App\Services\OfficeService;
 use App\Services\PageBannerService;
+use App\Services\ProductService;
 use App\Services\ProductTypeService;
 use App\Services\SolutionPartnerService;
 use App\Services\SolutionTypeService;
+use App\Services\NewsService;
 use App\Services\TagService;
 use App\Services\TestService;
 use App\Services\VideosService;
@@ -36,6 +48,9 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('admin.include.leftSidebarBolt',function ($view){
             $view->with('pages',\App\Model\Page::all());
+        });
+        view()->composer('front-end.include.rightsidebar',function ($view){
+            $view->with('news',\App\Model\News::orderBy('created_at','desc')->take(1)->get());
         });
     }
 
@@ -56,5 +71,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SolutionPartnerService::class, SolutionPartnerServiceImpl::class);
         $this->app->bind(VideosService::class, VideosServiceImpl::class);
         $this->app->bind(TagService::class, TagServiceImpl::class);
+        $this->app->bind(AdService::class, AdServiceImpl::class);
+        $this->app->bind(ClientTestimonialService::class,ClientTestimonialServieImpl::class);
+        $this->app->bind(ProductService::class,ProductServiceImpl::class);
+		$this->app->bind(NewsService::class,NewsServiceImpl::class);
+		$this->app->bind(ContactService::class,ContactServiceImpl::class);
+		$this->app->bind(OfficeService::class,OfficeServiceImpl::class);
     }
 }

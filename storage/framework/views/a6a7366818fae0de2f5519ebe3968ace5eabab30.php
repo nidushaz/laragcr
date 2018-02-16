@@ -33,6 +33,8 @@
                     <li><a href="<?php echo e(url('admin/experience-centre')); ?>">Experience Centre</a></li>
                 </ul>
             </li>
+			
+			<li><a href="<?php echo e(url('admin/news')); ?>"><i class="ti-paint-bucket"></i>News</a></li>
 
 
         </ul>

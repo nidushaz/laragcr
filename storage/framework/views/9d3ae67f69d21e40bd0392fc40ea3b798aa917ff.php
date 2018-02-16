@@ -80,10 +80,10 @@ wizard initialization
     $(".select2").select2();
     jQuery(document).ready(function(){
 
-        $("body").on('keyup','.tags',function () {
+        $("body").on('keyup','.tagss',function () {
             alert($(this).val());
         })
-        
+
         $("body").on("click",'.rmv',function(){
             swal({
                 title: 'Are you sure?',
@@ -193,5 +193,59 @@ wizard initialization
         $('.tags').tagsinput({
             maxTags: 50
         });
+    });
+
+    $("body").on("change",".actimage",function(){
+        //console.log($(this).parent().children().attr('class'));
+        var self=$(this).parent().children('.thumb-lg');
+		$(this).prev().remove();
+        readURL(this,self);
+    });
+
+    function readURL(input,self) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                self.attr('src', e.target.result);
+                self.next('.imageUrl').remove();
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#addBtn").click(function () {
+        var html= '';
+        html += '<div class="col-md-2">';
+        html += '<div class="form-group">';
+        html += '<img class="thumb-lg imgPreview" />';
+        html += '<input class="filestyle actimage" data-size="sm" placeholder="Browse Image" type="file" name="productImage[]"/>';
+        html += '</div>';
+        html += '</div>';
+        $('#imageSection').append(html);
+        $(this).filestyle();
+        console.log(html);
+    });
+	
+	
+	$("body").on("click",".genImg",function(){
+        var dynhtml ='<div class="col-md-2"><div class="form-group"><img class="img-thumbnail thumb-lg" src="" alt=""><br/><br/><input class="filestyle actimage" data-size="sm" placeholder="Browse Image" type="file" name="actimage[]" multiple/></div></div>';
+
+        $(".imgGrid").children('.form-group').append(dynhtml);
+
+        $(this).filestyle();
+
+    });
+	
+	$(document).ready(function(){
+        $(".actimage").next(".input-group").children(".form-control").css("display","none");
+    });
+
+    $("body").on("click", ".removeBtn", function(){
+        $(this).parent().parent().remove();
+    });
+	
+	$("body").on("click", ".fadeDiv", function(){
+        $(this).parent().parent().remove();
     });
 </script>

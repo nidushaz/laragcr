@@ -38,11 +38,6 @@ class Product
     private $description;
 
     /**
-     * @ORM\Column(type="string",length=500)
-     */
-    private $image;
-
-    /**
      * @ORM\ManyToOne(targetEntity="Country", inversedBy="productCountry")
      * @ORM\JoinColumn(name="country_id", referencedColumnName="id")
      */
@@ -101,7 +96,7 @@ class Product
 
 
     /**
-     * @ORM\OneToMany(targetEntity="ProductSolutionX", mappedBy="productSolutionId")
+     * @ORM\OneToMany(targetEntity="ProductSolutionX", mappedBy="productSolutionId",cascade={"persist"})
      */
     private $productSolutionX;
 
@@ -118,10 +113,15 @@ class Product
 
 
     /**
-     * @ORM\OneToMany(targetEntity="ProductImage", mappedBy="productImageId")
+     * @ORM\OneToMany(targetEntity="ProductImage", mappedBy="productImageId",cascade={"persist"})
      */
     private $productImage;
 
+    public function __construct()
+    {
+        $this->productSolutionX = new ArrayCollection();
+        $this->productImage = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -174,22 +174,6 @@ class Product
     /**
      * @return mixed
      */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
-     * @param mixed $image
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getProductCountryId()
     {
         return $this->productCountryId;
@@ -201,6 +185,22 @@ class Product
     public function setProductCountryId($productCountryId)
     {
         $this->productCountryId = $productCountryId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProductProviderId()
+    {
+        return $this->productProviderId;
+    }
+
+    /**
+     * @param mixed $productProviderId
+     */
+    public function setProductProviderId($productProviderId)
+    {
+        $this->productProviderId = $productProviderId;
     }
 
     /**
@@ -251,6 +251,21 @@ class Product
         $this->metaDescription = $metaDescription;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getisActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param mixed $isActive
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+    }
 
     /**
      * @return mixed
@@ -303,22 +318,6 @@ class Product
     /**
      * @return mixed
      */
-    public function getProductDetails()
-    {
-        return $this->productDetails;
-    }
-
-    /**
-     * @param mixed $productDetails
-     */
-    public function setProductDetails($productDetails)
-    {
-        $this->productDetails = $productDetails;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getProductX()
     {
         return $this->productX;
@@ -348,6 +347,14 @@ class Product
         $this->productSolutionX = $productSolutionX;
     }
 
+    public function addProductSolutionX(ProductSolutionX $productSolutionX)
+    {
+        if(!$this->productSolutionX->contains($productSolutionX)) {
+            $productSolutionX->setProductSolutionId($this);
+            $this->productSolutionX->add($productSolutionX);
+        }
+    }
+
     /**
      * @return mixed
      */
@@ -367,17 +374,17 @@ class Product
     /**
      * @return mixed
      */
-    public function getProductProviderId()
+    public function getProductDetails()
     {
-        return $this->productProviderId;
+        return $this->productDetails;
     }
 
     /**
-     * @param mixed $productProviderId
+     * @param mixed $productDetails
      */
-    public function setProductProviderId($productProviderId)
+    public function setProductDetails($productDetails)
     {
-        $this->productProviderId = $productProviderId;
+        $this->productDetails = $productDetails;
     }
 
     /**
@@ -396,24 +403,13 @@ class Product
         $this->productImage = $productImage;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getisActive()
+    public function addProductImage(ProductImage $productImage)
     {
-        return $this->isActive;
+        if(!$this->productImage->contains($productImage)) {
+            $productImage->setProductImageId($this);
+            $this->productImage->add($productImage);
+        }
     }
-
-    /**
-     * @param mixed $isActive
-     */
-    public function setIsActive($isActive)
-    {
-        $this->isActive = $isActive;
-    }
-
-
-
 
 
 }

@@ -11,21 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','HomeController@index')->name('home');
+Route::get('/solutions','SolutionsController@index')->name('solutions');
+Route::get('/solutions/{id}','SolutionsController@show')->name('solutions.list');
+Route::get('/experience-centre','ExperienceCentreController@index')->name('experience-centre');
+Route::get('/experience-centre/{id}','ExperienceCentreController@show')->name('experience-centre.list');
+Route::get('/contact','ContactController@index')->name('contact');
+Route::post('/contact','ContactController@send')->name('contact.submit');
+Route::get('/news','NewsController@index')->name('news');
 
 
-Route::get('test-find', function (\Doctrine\ORM\EntityManagerInterface $em) {
-    /* @var \TodoList\Entities\Task $task */
-    $task = $em->find(App\Entities\User::class, 1);
 
-    return $task->getName() . ' - ' . $task->get();
-});
-Route::get('a/login', function() {
-    return view('login');
-});
-
+Auth::routes();
 Route::group(['prefix'=>'admin'],function(){ 
 	Route::get('/','Admin\LoginController@showLoginForm')->name('admin.login');
 	Route::post('/','Admin\LoginController@login')->name('admin.login.submit');
@@ -48,10 +45,13 @@ Route::group(['prefix'=>'admin'],function(){
     Route::resource('/category','Admin\CategoryController');
     Route::resource('/partners','Admin\SolutionPartnerController');
     Route::resource('/experience-centre','Admin\VideosController');
+        Route::resource('/solutions','Admin\ProductController');
+    Route::resource('/ads','Admin\AdController');
+        Route::resource('/testimonials','Admin\ClientTestimonialController');
     Route::get('/experience-form',function(){
         return view('admin.Form.experienceForm');
     })->name('experience-form');
+	Route::resource('/news','Admin\NewsController');
 	});
 });
 
-Route::get('/home', 'HomeController@index')->name('home');

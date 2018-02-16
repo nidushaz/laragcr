@@ -62,6 +62,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label> Tags  </label><br/>
+                                        <input class="tagss">
                                         <input class="form-control tags" required="required" type="text" name="tags[]" data-role="tagsinput" placeholder="Add Tags" value="<?php if(isset($experience)): ?><?php echo e($experience->getTag()); ?> <?php endif; ?>"/>
                                     </div>
                                 </div>

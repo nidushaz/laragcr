@@ -24,6 +24,11 @@ class SolutionPartnerRepo
     {
         return $this->em->getRepository(SolutionPartner::class)->findBy(['deleted' => 0]);
     }
+    public function getAllActiveSolutionPartner()
+    {
+        return $this->em->getRepository(SolutionPartner::class)->findBy(['isActive' => 1]);
+    }
+
 
     public function addSolutionPartner($data)
     {

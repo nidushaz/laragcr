@@ -15,7 +15,9 @@ interface VideosService
     public function addVideo($data);
     public function updateVideo($data,$id);
     public function getActiveVideos();
+    public function getActiveVideosByLimit($limit);
     public function getVideoById($id);
+    public function getVideoByCatId($id);
     public function setArray($data);
     public function removeVideo($id);
 }

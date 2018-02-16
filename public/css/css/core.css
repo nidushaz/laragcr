@@ -2028,3 +2028,12 @@ body.fixed-left .side-menu.left {
 .waves-block {
   display: block;
 }
+
+.imgPreview{
+  border: 1px solid #e6e6e6;
+  width: 61%;
+  height: 74px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}

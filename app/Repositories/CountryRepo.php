@@ -45,6 +45,8 @@ class CountryRepo
         return true;
     }
 
-
+    public function findById($id){
+        return $this->em->getRepository(Country::class)->find($id);
+    }
 
 }

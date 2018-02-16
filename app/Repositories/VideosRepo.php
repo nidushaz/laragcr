@@ -41,12 +41,20 @@ class VideosRepo
 
     public function getActiveVideos()
     {
-        // TODO: Implement getActiveVideos() method.
+        return  $this->em->getRepository(Videos::class)->findBy(['isActive' =>1]);
+    }
+    public function getActiveVideosByLimit($limit)
+    {
+        return  $this->em->getRepository(Videos::class)->findBy(['isActive' =>1],['id'=>'DESC'],$limit);
     }
 
     public function getVideoById($id)
     {
        return $this->em->getRepository(Videos::class)->find($id);
+    }
+    public function getVideoByCatId($id)
+    {
+        return $this->em->getRepository(Videos::class)->findBy(['categoryId'=>$id],['id'=>'DESC']);
     }
     public function removeVideo($id){
         $expVideo = $this->em->getRepository(Videos::class)->find($id);

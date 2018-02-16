@@ -23,6 +23,11 @@ class SolutionPartnerServiceImpl implements SolutionPartnerService
         return $this->solutionPartnerRepo->getAllSolutionPartner();
     }
 
+    public function getAllActiveSolutionPartner()
+    {
+        return $this->solutionPartnerRepo->getAllActiveSolutionPartner();
+    }
+
     public function addSolutionPartner($data)
     {
         return $this->solutionPartnerRepo->addSolutionPartner($data);

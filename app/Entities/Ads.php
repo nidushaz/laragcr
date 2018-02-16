@@ -29,7 +29,7 @@ class Ads
     /**
      * @ORM\Column(type="string")
      */
-    private $addName;
+    private $title;
 
     /**
      * @ORM\Column(type="text")
@@ -82,17 +82,17 @@ class Ads
     /**
      * @return mixed
      */
-    public function getAddName()
+    public function getTitle()
     {
-        return $this->addName;
+        return $this->title;
     }
 
     /**
-     * @param mixed $addName
+     * @param mixed $title
      */
-    public function setAddName($addName)
+    public function setTitle($title)
     {
-        $this->addName = $addName;
+        $this->title = $title;
     }
 
     /**

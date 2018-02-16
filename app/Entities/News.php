@@ -58,6 +58,11 @@ class News
      * @ORM\Column(type="string",options={"unsigned":true, "default":0})
      */
     private $deleted;
+	
+	/**
+     * @ORM\Column(type="boolean")
+     */
+    private $isActive;
 
     /**
      * @ORM\Column(type="datetime")
@@ -232,6 +237,22 @@ class News
     public function setTag($tag)
     {
         $this->tag = $tag;
+    }
+	
+	/**
+     * @return mixed
+     */
+    public function getisActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param mixed $isActive
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
     }
 
 
