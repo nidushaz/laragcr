@@ -2,54 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31294135-22c4-4acd-ae7d-67bcd870f9be" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/adminLayout.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/animate.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/demo.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/light-bootstrap-dashboard.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/pe-icon-7-stroke.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/Pe-icon-7-stroke.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/Pe-icon-7-stroke.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/Pe-icon-7-stroke.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/fonts/Pe-icon-7-stroke.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/bootstrap-notify.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/bootstrap-select.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/chartist.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/demo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/jquery.3.2.1.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/light-bootstrap-dashboard.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/home.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/login.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/user.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/framework/sessions/5OPPLV9zFZOiqrn7gXTiEDZ467empRYfYH4fPztm" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.env" afterPath="$PROJECT_DIR$/.env" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Ads.php" afterPath="$PROJECT_DIR$/app/Entities/Ads.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/News.php" afterPath="$PROJECT_DIR$/app/Entities/News.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Product.php" afterPath="$PROJECT_DIR$/app/Entities/Product.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Provider.php" afterPath="$PROJECT_DIR$/app/Entities/Provider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/CountryRepo.php" afterPath="$PROJECT_DIR$/app/Repositories/CountryRepo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/SolutionPartnerRepo.php" afterPath="$PROJECT_DIR$/app/Repositories/SolutionPartnerRepo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/SolutionTypeRepo.php" afterPath="$PROJECT_DIR$/app/Repositories/SolutionTypeRepo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/VideosRepo.php" afterPath="$PROJECT_DIR$/app/Repositories/VideosRepo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/Impl/SolutionPartnerServiceImpl.php" afterPath="$PROJECT_DIR$/app/Services/Impl/SolutionPartnerServiceImpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/Impl/SolutionTypeServiceImpl.php" afterPath="$PROJECT_DIR$/app/Services/Impl/SolutionTypeServiceImpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/Impl/UploadService.php" afterPath="$PROJECT_DIR$/app/Services/Impl/UploadService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/Impl/VideosServiceImpl.php" afterPath="$PROJECT_DIR$/app/Services/Impl/VideosServiceImpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/SolutionPartnerService.php" afterPath="$PROJECT_DIR$/app/Services/SolutionPartnerService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/SolutionTypeService.php" afterPath="$PROJECT_DIR$/app/Services/SolutionTypeService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/VideosService.php" afterPath="$PROJECT_DIR$/app/Services/VideosService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/css/core.css" afterPath="$PROJECT_DIR$/public/css/css/core.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/include/jsBolt.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/include/jsBolt.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/include/leftSidebarBolt.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/include/leftSidebarBolt.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/0230d83b267f6ed539ea730de7408245d887c1c3.php" afterPath="$PROJECT_DIR$/storage/framework/views/0230d83b267f6ed539ea730de7408245d887c1c3.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/9d3ae67f69d21e40bd0392fc40ea3b798aa917ff.php" afterPath="$PROJECT_DIR$/storage/framework/views/9d3ae67f69d21e40bd0392fc40ea3b798aa917ff.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/a6a7366818fae0de2f5519ebe3968ace5eabab30.php" afterPath="$PROJECT_DIR$/storage/framework/views/a6a7366818fae0de2f5519ebe3968ace5eabab30.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/logs/laravel.log" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -650,12 +603,12 @@
       <workItem from="1518665013088" duration="36414000" />
       <workItem from="1518752456326" duration="3488000" />
       <workItem from="1518756059745" duration="34046000" />
-      <workItem from="1518794884978" duration="49000" />
+      <workItem from="1518794884978" duration="1003000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="372433000" />
+    <option name="totallyTimeSpent" value="373387000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

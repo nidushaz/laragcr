@@ -32,7 +32,7 @@ class ContactServiceImpl implements ContactService
         $contactService->setCountry($data->get('country'));
         $contactService->setTopic($data->get('topic'));
         $contactService->setWebsite($data->get('website'));
-        $contactService->setOfficeNumber($data->get('number'));
+        $contactService->setOfficeNumber($data->get('git number'));
         $contactService->setAddress($data->get('address'));
         $contactService->setCreatedAt(new \DateTime(now()));
         Mail::send(['text'=>'mail.contactmail'],['data'=>$data],function($message) use ($data){
