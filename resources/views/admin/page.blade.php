@@ -1,5 +1,5 @@
 @extends('admin.layouts.adminLayouts2')
-@section('title','Banners')
+@section('title','Page|Setting')
 
 @section('content')
     <div class="container">

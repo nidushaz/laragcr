@@ -7,6 +7,10 @@
     <title><?php echo $__env->yieldContent('title'); ?></title>
 
     <link rel="shortcut icon" href="<?php echo e(asset('images/favicon_1.ico' )); ?>">
+    <link href="<?php echo e(asset('plugins/timepicker/bootstrap-timepicker.min.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('plugins/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')); ?>" rel="stylesheet">
+
     <link href="<?php echo e(asset('plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css')); ?>" rel="stylesheet" />
 
     <link href="<?php echo e(asset('plugins/bootstrapvalidator/src/css/bootstrapValidator.css')); ?>" rel="stylesheet" type="text/css" />
@@ -74,4 +78,5 @@
             background-color: #5fbeaa !important;
             border: 1px solid #5fbeaa !important;
         }
+
     </style>

@@ -7,6 +7,10 @@
     <title>@yield('title')</title>
 
     <link rel="shortcut icon" href="{{ asset('images/favicon_1.ico' )}}">
+    <link href="{{asset('plugins/timepicker/bootstrap-timepicker.min.css')}}" rel="stylesheet">
+    <link href="{{asset('plugins/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css')}}" rel="stylesheet">
+    <link href="{{asset('plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}" rel="stylesheet">
+
     <link href="{{asset('plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}" rel="stylesheet" />
 
     <link href="{{asset('plugins/bootstrapvalidator/src/css/bootstrapValidator.css')}}" rel="stylesheet" type="text/css" />
@@ -74,4 +78,5 @@
             background-color: #5fbeaa !important;
             border: 1px solid #5fbeaa !important;
         }
+
     </style>

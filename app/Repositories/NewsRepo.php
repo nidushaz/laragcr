@@ -12,6 +12,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Entities\News;
 use App\Services\Impl\UploadService;
 use App\Entities\NewsAttachment;
+use phpDocumentor\Reflection\Types\Null_;
 
 class NewsRepo
 {
@@ -32,7 +33,11 @@ class NewsRepo
         $news->setNewsCountryId($countryId);
         $news->setNewsHeading($data->get('title'));
         $news->setNewsSummary($data->get('description'));
-        $news->setTag('dsfdf');
+        $news->setTag('');
+        $news->setType($data->get('type'));
+        ($data->get('start-event')!=NULL)? $news->setEventStartDate(new \DateTime($data->get('start-event'))):'';
+        ($data->get('end-event')!=NULL)? $news->setEventEndDate(new \DateTime($data->get('end-event'))):'';
+        $news->setSource($data->get('source'));
         $news->setDeleted(0);
         $news->setCreatedAt(new \DateTime(now()));
         $news->setUpdatedAt(new \Datetime(now()));
@@ -73,29 +78,36 @@ class NewsRepo
     {
         return $this->em->getRepository(News::class)->findBy(['deleted' => 0]);
     }
+    public function getAllActiveNews()
+    {
+        return $this->em->getRepository(News::class)->findBy(['deleted' => 0,'isActive'=>1]);
+    }
+
 
     public function getActiveNews($id)
     {
-        return $this->em->getRepository(News::class)->find($id);
+        return $this->em->getRepository(News::class)->findOneBy(['id'=>$id]);
     }
 
     public function updateNews($data,$id)
     {
+        $dateTime = new \DateTime();
         $news = $this->em->getRepository(News::class)->find($id);
         $countryId = $this->em->getRepository(Country::class)->find($data->get('country'));
         $news->setNewsCountryId($countryId);
         $news->setNewsHeading($data->get('title'));
         $news->setNewsSummary($data->get('description'));
-        $news->setTag('dsfdf');
+        $news->setTag('');
+        $news->setType($data->get('type'));
+        ($data->get('start-event')!=NULL)? $news->setEventStartDate($dateTime->createFromFormat('m/d/Y',$data->get('start-event'))):'';
+        ($data->get('end-event')!=NULL)? $news->setEventEndDate($dateTime->createFromFormat('m/d/Y',$data->get('end-event'))):'';
+        $news->setSource($data->get('source'));
         $news->setDeleted(0);
-        $news->setCreatedAt(new \DateTime(now()));
         $news->setUpdatedAt(new \Datetime(now()));
         $news->setIsActive($data->get('active'));
         $image_url = $this->uploadService->UploadFile($data,'thumbimage','News/');
 
-        if($image_url){
-            $news->setThumbnail($image_url);
-            $this->em->flush();
+
 
             $lastInsertId=$news->getId();
             $insertId = $this->em->getRepository(News::class)->find($lastInsertId);
@@ -138,10 +150,14 @@ class NewsRepo
                     $this->em->flush();
                 }
             }
+        if($image_url){
+            $news->setThumbnail($image_url);
+            $this->em->flush();
             return true;
         }else{
-            return false;
-            die();
+            $image_url? $news->setThumbnail($image_url):'';
+            $this->em->flush();
+            return true;
         }
     }
 

@@ -34,6 +34,18 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label>Solution Provider</label>
+                                <select class="form-control select2" required="required" id="solution_provider" name="solution_provider">
+                                    <option value="">Choose Provider</option>
+                                    @foreach($providers as $provider)
+                                        <option value="{{$provider->getId()}}" @isset($product) {{$provider->getId() == $product->getProductProviderId()->getId() ? "selected=selected" : "" }} @endisset >{{$provider->getFirstName() }} {{$provider->getLastName() }}</option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <label>Meta Title</label>
                                 <input class="form-control" required="required" placeholder="Meta Title" type="text" name="metaTitle"  value="@isset($product){{$product->getMetaTitle()}} @endisset">
                             </div>
@@ -44,7 +56,7 @@
                                 <input class="form-control" required="required" placeholder="Meta Keywords" type="text" name="metaKeywords"  value="@isset($product){{$product->getMetaKeywords()}} @endisset">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label>Meta Description</label>
                                 <textarea rows="5" class="form-control" required="required" placeholder="Meta Description" name="metaDescription" id="metaDescription">@isset($product){{$product->getMetaDescription()}} @endisset</textarea>

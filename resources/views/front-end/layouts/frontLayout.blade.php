@@ -21,13 +21,13 @@
         </div>
     </div>
 </section>
-
-<div class="row-fluid">
+    <section>
+<div class="row">
 
     @yield('content')
 
 </div>
-
+    </section>
 <footer>
     @include('front-end.include.footer')
 </footer>

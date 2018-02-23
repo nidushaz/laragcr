@@ -67,18 +67,36 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>News Heading</label>
+                                    <label>News/Events Heading</label>
                                     <input class="form-control" required="required" placeholder="News heading" type="text" name="title"  value="@isset($news){{$news->getNewsHeading()}} @endisset">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>News/Events Source</label>
+                                    <input class="form-control" required="required" placeholder="Source" type="text" name="source"  value="@if(@isset($news)){{$news->getSource()}} @else GCR @endif ">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Type</label>
+                                    <select class="form-control required" required="required" name="type"  data-route="@if(@isset($news)) {{route('events-form',['id',$news->getId()])}} @else{{route('events-form')}}@endif">
+                                        <option value="">Choose Type</option>
+                                        <option value="1" @isset($news) {{$news->getType()=='1' ? "selected=selected" : "" }} @endisset>News</option>
+                                        <option value="2" @isset($news) {{$news->getType()=='2' ? "selected=selected" : "" }} @endisset>Events</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
 
+                        <div class="type"></div>
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>News Description</label>
+                                    <label>News/Events Description</label>
                                     <textarea rows="5"  id="description" required="required" class="form-control summernote" placeholder="Description" name="description">@isset($news) {{$news->getNewsSummary()}} @endisset</textarea>
                                 </div>
                             </div>

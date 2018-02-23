@@ -42,7 +42,8 @@ class VideosController extends Controller
     public function create()
     {
         $categories = $this->catService->getAllActiveCategory();
-        return view('admin.createExperienceCentre',['categories'=>$categories]);
+        $solutions = $this->solService->getIsActive();
+        return view('admin.createExperienceCentre',compact('categories','solutions'));
     }
 
     /**
@@ -57,7 +58,7 @@ class VideosController extends Controller
            "title" => "required",
             "category" => "required",
             "url" => "required",
-            "tags" => "required",
+            "solution" => "required",
         ]);
         $result = $this->videoService->addVideo($request);
         if($result){
@@ -89,7 +90,8 @@ class VideosController extends Controller
 
         $experience = $this->videoService->getVideoById($id);
         $categories = $this->catService->getAllActiveCategory();
-        return view('admin.createExperienceCentre',['experience'=>$experience,'categories'=>$categories]);
+        $solutions = $this->solService->getIsActive();
+        return view('admin.createExperienceCentre',['experience'=>$experience,'categories'=>$categories,'solutions'=>$solutions]);
     }
 
     /**
@@ -105,7 +107,7 @@ class VideosController extends Controller
             "title" => "required",
             "category" => "required",
             "url" => "required",
-            "tags" => "required",
+            "solution" => "required",
         ]);
         $result = $this->videoService->updateVideo($request,$id);
         if($result){
@@ -124,5 +126,9 @@ class VideosController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function dynamicForm(){
+        $solutions = $this->solService->getIsActive();
+        return view('admin.Form.experienceForm',compact('solutions'));
     }
 }

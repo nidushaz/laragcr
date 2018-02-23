@@ -32,6 +32,7 @@ class SolutionPartnerController extends Controller
      */
     public function create()
     {
+
         return view('admin.createSolutionPartner');
     }
 
@@ -52,7 +53,7 @@ class SolutionPartnerController extends Controller
         if($result){
             return redirect()->route('partners.index')->with('success-msg', 'Partner added successfully.');
         }else{
-            return redirect()->route('partners.inex')->with('error-msg', 'Image is not set OR something went wrong.');
+            return redirect()->route('partners.index')->with('error-msg', 'Image is not set OR something went wrong.');
         }
     }
 

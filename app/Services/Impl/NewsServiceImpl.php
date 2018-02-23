@@ -41,4 +41,9 @@ class NewsServiceImpl implements NewsService
     {
         return $this->newsRepo->deleteImgMedia($id);
     }
+
+    public function getAllActiveNews()
+    {
+        return $this->newsRepo->getAllActiveNews();
+    }
 }

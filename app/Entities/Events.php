@@ -43,6 +43,11 @@ class Events
     private $description ;
 
     /**
+     * @ORM\Column(type="string",length=500)
+     */
+    private $thumb ;
+
+    /**
      * @ORM\Column(type="text")
      */
     private $eventLocation ;
@@ -274,6 +279,22 @@ class Events
     public function setEventsAttachment($EventsAttachment)
     {
         $this->EventsAttachment = $EventsAttachment;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getThumb()
+    {
+        return $this->thumb;
+    }
+
+    /**
+     * @param mixed $thumb
+     */
+    public function setThumb($thumb)
+    {
+        $this->thumb = $thumb;
     }
 
 

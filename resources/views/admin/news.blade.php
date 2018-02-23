@@ -31,6 +31,7 @@
                         <tr>
                             <th data-toggle="true">Id</th>
                             <th>News Heading</th>
+                            <th>News & Events</th>
                             <th>Image</th>
                             <th data-hide="phone, tablet">Status</th>
                             <th>Action</th>
@@ -46,6 +47,9 @@
                                 <td class="editTd">
                                     {{$new->getNewsHeading()}}
                                 </td>
+                            <td class="editTd">
+                                @if($new->getType()=='1') News @elseif($new->getType()=='2') Event @endif
+                            </td>
                                 {{--<td class="editTd">--}}
                                     {{--{!! \Illuminate\Support\Str::words($partner->getDescription(), 20,'....')  !!}--}}
                                 {{--</td>--}}

@@ -14,7 +14,8 @@
             <?php $__empty_1 = true; $__currentLoopData = $solutions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $solution): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                 <a href ="<?php echo e(route('solutions.list',['id'=>$solution->getId()])); ?>">
             <div class="grid">
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+			<div class="fortSolut">
+                <div class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                     <figure class="effect-zoe">
                         <img src="<?php echo e(asset($solution->getImage())); ?>" class="img-responsive" alt="solu-img1">
                         <figcaption>
@@ -24,6 +25,7 @@
                     </figure>
 
                 </div>
+				</div>
             </div>
                 </a>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>

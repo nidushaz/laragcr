@@ -48,7 +48,7 @@ class NewsController extends Controller
         $this->page_id = $this->pageBannerService->getPageId('about-GCR');
         $this->abouts = $this->pageBannerService->getPageContent($this->page_id);
 
-        $this->news = $this->newsService->getAllNews();
+        $this->news = $this->newsService->getAllActiveNews();
     }
 
     public function index()
@@ -58,6 +58,38 @@ class NewsController extends Controller
         $solutions = $this->solutions;
         $abouts = $this->abouts;
         $news = $this->news;
-        return view('front-end.news',compact('banner','content','solutions','abouts','news'));
+		
+		$sortedData = array();
+        foreach($news as $element)
+        {
+            $timestamp = strtotime($element->getUpdatedAt()->format('Y-m-d H:i:s'));
+
+            $date = date("Y", $timestamp); //truncate hours:minutes:seconds
+            if ( ! isSet($sortedData[$date]) ) { //first entry of that day
+//                $sortedData[$date] = array($element);
+                $sortedData[$date][]=array("id"=>$element->getId(),"updateAt"=>date("d F Y",$timestamp),"heading"=>$element->getNewsHeading());
+            } else { //just push current element onto existing array
+                $sortedData[$date][] = array("id"=>$element->getId(),"updateAt"=>date("d F Y",$timestamp),"heading"=>$element->getNewsHeading());
+            }
+
+        }
+		
+		//print_r($sortedData);exit;
+		
+        return view('front-end.news',compact('banner','content','solutions','abouts','news','sortedData'));
     }
+
+    public function list(Request $request,$id)
+    {
+        $content = $this->content;
+        $banner = $this->banner;
+        $solutions = $this->solutions;
+        $abouts = $this->abouts;
+        $news = $this->news;
+        $new = $this->newsService->getActiveNews($id);
+        return view('front-end.newslist',compact('banner','content','solutions','abouts','news','new'));
+
+
+    }
+
 }

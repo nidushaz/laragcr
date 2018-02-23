@@ -68,18 +68,36 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>News Heading</label>
+                                    <label>News/Events Heading</label>
                                     <input class="form-control" required="required" placeholder="News heading" type="text" name="title"  value="<?php if(isset($news)): ?><?php echo e($news->getNewsHeading()); ?> <?php endif; ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>News/Events Source</label>
+                                    <input class="form-control" required="required" placeholder="Source" type="text" name="source"  value="<?php if(@isset($news)): ?><?php echo e($news->getSource()); ?> <?php else: ?> GCR <?php endif; ?> ">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Type</label>
+                                    <select class="form-control required" required="required" name="type"  data-route="<?php if(@isset($news)): ?> <?php echo e(route('events-form',['id',$news->getId()])); ?> <?php else: ?><?php echo e(route('events-form')); ?><?php endif; ?>">
+                                        <option value="">Choose Type</option>
+                                        <option value="1" <?php if(isset($news)): ?> <?php echo e($news->getType()=='1' ? "selected=selected" : ""); ?> <?php endif; ?>>News</option>
+                                        <option value="2" <?php if(isset($news)): ?> <?php echo e($news->getType()=='2' ? "selected=selected" : ""); ?> <?php endif; ?>>Events</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
 
+                        <div class="type"></div>
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>News Description</label>
+                                    <label>News/Events Description</label>
                                     <textarea rows="5"  id="description" required="required" class="form-control summernote" placeholder="Description" name="description"><?php if(isset($news)): ?> <?php echo e($news->getNewsSummary()); ?> <?php endif; ?></textarea>
                                 </div>
                             </div>

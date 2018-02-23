@@ -1,4 +1,4 @@
-<?php $__env->startSection('title','Banners'); ?>
+<?php $__env->startSection('title','Page|Setting'); ?>
 
 <?php $__env->startSection('content'); ?>
     <div class="container">

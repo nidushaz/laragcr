@@ -38,7 +38,7 @@ class Videos
 
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text",nullable=true)
      */
     private $tag;
 
@@ -64,7 +64,8 @@ class Videos
     private $createdAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="VideoSolutionTypeX", mappedBy="videoVideoId")
+     * @ORM\OneToMany(targetEntity="VideoSolutionTypeX", mappedBy="videoVideoId", cascade={"persist"})
+     * @var ArrayCollection|VideoSolutionTypeX[]
      */
     private $videoSolX;
 
@@ -72,6 +73,12 @@ class Videos
      * @ORM\OneToMany(targetEntity="VideoIndustryX", mappedBy="videoVideoId")
      */
     private $videoIndX;
+
+
+    public function __construct()
+    {
+        $this->videoSolX = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -215,6 +222,14 @@ class Videos
     public function setVideoSolX($videoSolX)
     {
         $this->videoSolX = $videoSolX;
+    }
+
+    public function addVideoSolX(VideoSolutionTypeX $videoSolutionTypeX)
+    {
+        if(!$this->videoSolX->contains($videoSolutionTypeX)) {
+            $videoSolutionTypeX->setVideoVideoId($this);
+            $this->videoSolX->add($videoSolutionTypeX);
+        }
     }
 
 

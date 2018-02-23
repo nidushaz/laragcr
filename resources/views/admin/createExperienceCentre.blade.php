@@ -60,11 +60,20 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label> Tags  </label><br/>
-                                        <input class="tagss">
-                                        <input class="form-control tags" required="required" type="text" name="tags[]" data-role="tagsinput" placeholder="Add Tags" value="@isset($experience){{$experience->getTag()}} @endisset"/>
-                                    </div>
+                                    <label>Solution</label>
+                                    <select class="form-control select2" required="required" id="sol_id" name="solution[]">
+                                        <option value="">Choose Solution</option>
+                                        @foreach($solutions as $solution)
+                                            <option value="{{$solution->getId()}}" @isset($experience) {{$experience->getCategoryId()->getId() == $solution->getId() ? "selected=selected" : "" }} @endisset >{{$solution->getName()}}</option>
+                                        @endforeach
+
+                                    </select>
+                                    {{--<div class="form-group">--}}
+                                        {{--<label> Tags  </label><br/>--}}
+                                        {{--<input class="tagss">--}}
+                                        {{--<input class="form-control tags" required="required" type="text" name="tags[]" data-role="tagsinput" placeholder="Add Tags" value="@isset($experience){{$experience->getTag()}} @endisset"/>--}}
+                                    {{--</div>--}}
+
                                 </div>
                             </div>
                         </div>

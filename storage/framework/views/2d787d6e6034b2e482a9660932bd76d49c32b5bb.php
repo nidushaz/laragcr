@@ -6,13 +6,14 @@
             </div>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-6">
-            <div class="social-foot">
-                <ul class="social-bottom">
+            <div class="social-foot text-center">
+               <!-- <ul class="social-bottom">
                     <li><a href="#" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#" class="twitter tool-tip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
                     <li><a href="#" class="linkedin tool-tip" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
                     <span>&copy; 2018 GCR</span>
-                </ul>
+                </ul>-->
+                <a href="#" class="Discl">Disclaimer </a>
 
             </div>
         </div>

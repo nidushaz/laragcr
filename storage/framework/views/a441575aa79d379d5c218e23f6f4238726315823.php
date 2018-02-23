@@ -13,7 +13,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+               <!-- <div class="row">
                     <div class="col-sm-12">
                         <div class="nbs-flexisel-container">
                             <div class="nbs-flexisel-inner">
@@ -26,16 +26,15 @@
 
                         </div>
                     </div>
-                </div>
+                </div>-->
 
                 <div class="row">
-
-                    <div class="col-sm-12 col-md-12">
+                    <div class="col-sm-12 col-md-12 pdn-left pdn-right">
                         <?php if(isset($ads)): ?>
                             <?php $__currentLoopData = $ads; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ad): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="banrAd">
-                                    <img src="<?php echo e(asset($ad->getImage())); ?>" class="img-responsive">
-									
+                                    <img src="<?php echo e(asset($ad->getImage())); ?>" class="img-responsive image">
+									<div class="overlay">Add one</div>
                                 </div>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         <?php endif; ?>

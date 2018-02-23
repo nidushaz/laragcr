@@ -30,6 +30,7 @@
                         <tr>
                             <th data-toggle="true">Id</th>
                             <th>News Heading</th>
+                            <th>News & Events</th>
                             <th>Image</th>
                             <th data-hide="phone, tablet">Status</th>
                             <th>Action</th>
@@ -47,6 +48,9 @@
                                     <?php echo e($new->getNewsHeading()); ?>
 
                                 </td>
+                            <td class="editTd">
+                                <?php if($new->getType()=='1'): ?> News <?php elseif($new->getType()=='2'): ?> Event <?php endif; ?>
+                            </td>
                                 
                                     
                                 

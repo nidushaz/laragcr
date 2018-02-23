@@ -7,6 +7,7 @@
  */
 
 namespace App\Repositories;
+use App\Entities\SolutionTypeImageX;
 use LaravelDoctrine\ORM\Facades\Doctrine;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entities\SolutionType;
@@ -52,11 +53,30 @@ class SolutionTypeRepo
             $solutionType->setImage($image_url);
             $this->em->persist($solutionType);
             $this->em->flush();
+            $lastInsertId=$solutionType->getId();
+            $insertId = $this->em->getRepository(SolutionType::class)->find($lastInsertId);
+            $mulImage=$this->uploadService->UploadMulFile($data,'actimage','CatalogImage');
+            if($mulImage){
+                foreach($mulImage as $mul)
+                {
+                    $solTypeImg = new SolutionTypeImageX();
+                    $solTypeImg->setSolutionTypeImageId($insertId);
+                    $solTypeImg->setMediaUrl($mul);
+                    $solTypeImg->setDeleted(0);
+                    $solTypeImg->setCreatedAt(new \Datetime(now()));
+                    $solTypeImg->setUpdatedAt(new \DateTime(now()));
+                    $this->em->persist($solTypeImg);
+                    $this->em->flush();
+                }
+                return true;
+            }
             return true;
         }else{
             return  false;
             die();
         }
+
+
 
     }
 
@@ -68,8 +88,54 @@ class SolutionTypeRepo
         $solutionType->setDeleted(0);
         $image_url = $this->uploadService->UploadFile($data,'image','Solution/');
         $image_url?$solutionType->setImage($image_url):'';
+
+
+
+        $lastInsertId=$solutionType->getId();
+        $insertId = $this->em->getRepository(SolutionType::class)->find($lastInsertId);
+        $findimgattch=$this->em->getRepository(SolutionTypeImageX::class)->findBy(["solutionTypeImageId"=>$solutionType->getId()]);
+
+        foreach ($findimgattch as $feature) {
+            $this->em->remove($feature);
+        }
+        $this->em->flush();
+
+        if($data->get('imageUrl')):
+            $oldUrl=$data->get('imageUrl');
+            foreach($oldUrl as $oldImg)
+            {
+                $solTypeImg = new SolutionTypeImageX();
+                $solTypeImg->setSolutionTypeImageId($insertId);
+                $solTypeImg->setMediaUrl($oldImg);
+                $solTypeImg->setDeleted(0);
+                $solTypeImg->setCreatedAt(new \Datetime(now()));
+                $solTypeImg->setUpdatedAt(new \DateTime(now()));
+                $this->em->persist($solTypeImg);
+                $this->em->flush();
+            }
+
+        endif;
+        $mulImage=$this->uploadService->UploadMulFile($data,'actimage','newsAttach');
+
+        if($mulImage){
+            foreach($mulImage as $mul)
+            {
+                $newsAttach = new SolutionTypeImageX();
+                $newsAttach->setSolutionTypeImageId($insertId);
+                $newsAttach->setMediaUrl($mul);
+                $newsAttach->setDeleted(0);
+                $newsAttach->setCreatedAt(new \Datetime(now()));
+                $newsAttach->setUpdatedAt(new \DateTime(now()));
+                $this->em->persist($newsAttach);
+                $this->em->flush();
+            }
+        }
         $this->em->flush();
         return true;
+
+
+
+
 
     }
 

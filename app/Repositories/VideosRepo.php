@@ -57,6 +57,7 @@ class VideosRepo
         return $this->em->getRepository(Videos::class)->findBy(['categoryId'=>$id],['id'=>'DESC']);
     }
     public function removeVideo($id){
+
         $expVideo = $this->em->getRepository(Videos::class)->find($id);
         $this->em->remove($expVideo);
         $this->em->flush();

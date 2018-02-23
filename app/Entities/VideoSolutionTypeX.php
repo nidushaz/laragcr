@@ -35,8 +35,8 @@ class VideoSolutionTypeX
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="Videos", inversedBy="videoSolX")
-     * @ORM\JoinColumn(name="video_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Videos", inversedBy="videoSolX",cascade={"remove"})
+     * @ORM\JoinColumn(name="video_id", referencedColumnName="id",onDelete="CASCADE")
      */
     private $videoVideoId;
 

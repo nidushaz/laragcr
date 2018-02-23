@@ -10,16 +10,20 @@
                     <div class="row">
                         <div class="flt"><h2>GCR Eco System</h2></div>
                         <div class="flt">
-                            <!--<p>GCR is Global Channel Resources, bridging the gaps between solution providers and global channel partners.,<br/>
-                    We collaborate with worldwide cloud-based/networking solution providers to enable channel partners providing IoT solutions and cloud services.</p>-->
+                         <p>GCR is Global Channel Resources, bridging the gaps between solution providers and global channel partners.,<br/>
+                    We collaborate with worldwide cloud-based/networking solution providers to enable channel partners providing IoT solutions and cloud services.</p>
                         </div>
                     </div>
 				<div class="grid">
                     <div class="text-center">
+                    <div style=" float: left; margin-right: 10px;"> 
+						<img src="{{asset('images/front-images/vart-text.png')}}" class="img-responsive" alt="socail-vsit">
+					</div>
                         @forelse($solutions as $solution)
-                        <div class="col-md-2 col-sm-2 col-xs-6">
+                        
+                        <div class="fortSolut">
                             <div class="hi-icon-wrap hi-icon-effect wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-							<figure class="effect-zoe">
+							<figure class="effect-zoe toggler">
                                 <img src="{{asset($solution->getImage())}}" class="img-responsive" alt="solu-img1">
 								<figcaption>
 									<h2>{{$solution->getName()}}</h2>
@@ -28,9 +32,20 @@
 							</figure>
                             </div>
                         </div>
-                            @empty
+						@empty
                         @endforelse
+							
                     </div>
+					 <div class="clearfix"></div>
+				 <div class="og-expander">
+					<div class="row">
+					<span class="closebtn">X</span>
+						<div class="col-md-12 col-sm-12 col-xs-12 ">
+						
+						<p><a href="#">Content</a></p>
+						</div>
+					</div>
+				 </div>
 				</div>
                 </div>
             </div>
@@ -147,21 +162,49 @@
 
         <section id="partner">
             <div class="container">
-                <div class="center wow fadeInDown">
+                <div class="wow fadeInDown">
                     <h2>Our Platform Ecosystem Partners</h2>
                     <p>(Explore the information below to learn more)</p>
                 </div>
 
-                <div class="partners">
-                    <ul>
-                        @forelse($partners as $partner)
-                        <li><a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms" src="{{asset($partner->getLogo())}}"></a></li>
+             <div class="">
+			 <div class="center slider">
+			 @forelse($partners as $partner)
+				<div>
+					
+					<img class="img-responsive wow"  src="{{asset($partner->getLogo())}}">
+					
+				</div>
+				@empty
+                        @endforelse
+			 </div>
+			 
+                    <!--<div class="nbs-flexisel-container-one">
+                            <div class="nbs-flexisel-inner-one" style="width:100%;">
+                                <ul id="flexiselDemo7" class="nbs-flexisel-ul" style="display: block; left: -219.6px;">
+                                    @forelse($partners as $partner)
+                        <li><a href="#"><img class="img-responsive wow"  src="{{asset($partner->getLogo())}}"></a></li>
                             @empty
                         @endforelse
-                    </ul>
+                                </ul>
+                            </div>
+
+                        </div>-->
                 </div>
+                
+                
+                
+                
+                
             </div>
-            <!--/.container-->
+            
+            
+            
         </section>
+        
+        
+       
+  
+</div>
         <!--/#partner-->
         @endsection

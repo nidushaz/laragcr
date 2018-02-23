@@ -13,6 +13,8 @@
     <link href="<?php echo e(asset('css/css/front-css/style.css')); ?>" rel="stylesheet" />
     <link href="<?php echo e(asset('css/css/front-css/set1.css')); ?>" rel="stylesheet" />
     <link rel="stylesheet" href="<?php echo e(asset('css/css/front-css/video-slide.css')); ?>">
+	<link rel="stylesheet" href="<?php echo e(asset('css/css/front-css/slick.css')); ?>">
+	<link rel="stylesheet" href="<?php echo e(asset('css/css/front-css/slick-theme.css')); ?>">
     <style>
         .mrg{
             margin-bottom: 5px;

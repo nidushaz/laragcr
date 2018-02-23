@@ -21,13 +21,13 @@
         </div>
     </div>
 </section>
-
-<div class="row-fluid">
+    <section>
+<div class="row">
 
     <?php echo $__env->yieldContent('content'); ?>
 
 </div>
-
+    </section>
 <footer>
     <?php echo $__env->make('front-end.include.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 </footer>

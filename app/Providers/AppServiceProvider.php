@@ -20,6 +20,7 @@ use App\Services\Impl\PageBannerServiceImpl;
 use App\Services\Impl\ProductServiceImpl;
 use App\Services\Impl\ProductTypeServiceImpl;
 use App\Services\Impl\SolutionPartnerServiceImpl;
+use App\Services\Impl\SolutionProviderServiceImpl;
 use App\Services\Impl\SolutionTypeServiceImpl;
 use App\Services\Impl\TagServiceImpl;
 use App\Services\Impl\TestServiceImpl;
@@ -30,6 +31,7 @@ use App\Services\PageBannerService;
 use App\Services\ProductService;
 use App\Services\ProductTypeService;
 use App\Services\SolutionPartnerService;
+use App\Services\SolutionProviderService;
 use App\Services\SolutionTypeService;
 use App\Services\NewsService;
 use App\Services\TagService;
@@ -50,7 +52,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('pages',\App\Model\Page::all());
         });
         view()->composer('front-end.include.rightsidebar',function ($view){
-            $view->with('news',\App\Model\News::orderBy('created_at','desc')->take(1)->get());
+            $view->with('news',\App\Model\News::where('type',1)->orderBy('created_at','desc')->take(1)->get());
+        });
+        view()->composer('front-end.include.rightsidebar',function ($view){
+            $view->with('events',\App\Model\News::where('type',2)->orderBy('created_at','desc')->take(1)->get());
         });
     }
 
@@ -74,8 +79,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(AdService::class, AdServiceImpl::class);
         $this->app->bind(ClientTestimonialService::class,ClientTestimonialServieImpl::class);
         $this->app->bind(ProductService::class,ProductServiceImpl::class);
-		$this->app->bind(NewsService::class,NewsServiceImpl::class);
-		$this->app->bind(ContactService::class,ContactServiceImpl::class);
-		$this->app->bind(OfficeService::class,OfficeServiceImpl::class);
+        $this->app->bind(NewsService::class,NewsServiceImpl::class);
+        $this->app->bind(ContactService::class,ContactServiceImpl::class);
+        $this->app->bind(OfficeService::class,OfficeServiceImpl::class);
+        $this->app->bind(SolutionProviderService::class, SolutionProviderServiceImpl::class);
     }
 }

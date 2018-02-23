@@ -7,18 +7,20 @@ use App\Services\IndustryService;
 use App\Services\ProductService;
 use App\Services\ProductTypeService;
 use App\Services\SolutionTypeService;
+use App\Services\SolutionProviderService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
-    private $productService, $countryService, $industryService, $productTypeService, $solutionTypeService;
-    public function __construct(ProductService $productService, CountryService $countryService, IndustryService $industryService, ProductTypeService $productTypeService, SolutionTypeService $solutionTypeService){
+    private $productService, $countryService, $industryService, $productTypeService, $solutionTypeService,$solutionProvider;
+    public function __construct(ProductService $productService, CountryService $countryService, IndustryService $industryService, ProductTypeService $productTypeService, SolutionTypeService $solutionTypeService,SolutionProviderService $solutionProviderService){
         $this->productService = $productService;
         $this->productTypeService = $productTypeService;
         $this->countryService = $countryService;
         $this->industryService = $industryService;
         $this->solutionTypeService = $solutionTypeService;
+        $this->solutionProvider =  $solutionProviderService;
     }
 
     /**
@@ -41,7 +43,8 @@ class ProductController extends Controller
         $countries = $this->countryService->getAllActiveCountry();
         $industryTypes = $this->industryService->getAllActiveIndustries();
         $solutionTypes = $this->solutionTypeService->getAllActiveSolutionType();
-        return view('admin.product', compact('productTypes','countries', 'industryTypes', 'solutionTypes'));
+        $providers = $this->solutionProvider->getAllActiveSolutionProvider();
+        return view('admin.product', compact('productTypes','countries', 'industryTypes', 'solutionTypes','providers'));
     }
 
     /**
@@ -84,6 +87,7 @@ class ProductController extends Controller
      */
     public function edit($id){
         $product = $this->productService->getProduct($id);
+        $providers = $this->solutionProvider->getAllActiveSolutionProvider();
         $selectedSolutions = [];
         foreach ($product->getProductSolutionX() as $productSolutionX){
             $selectedSolutions[] = $productSolutionX->getProductSolutionTypeId()->getId();
@@ -92,7 +96,7 @@ class ProductController extends Controller
         $countries = $this->countryService->getAllActiveCountry();
         $industryTypes = $this->industryService->getAllActiveIndustries();
         $solutionTypes = $this->solutionTypeService->getAllActiveSolutionType();
-        return view('admin.product', compact('productTypes','countries', 'industryTypes', 'solutionTypes', 'product', 'selectedSolutions'));
+        return view('admin.product', compact('productTypes','countries', 'industryTypes', 'solutionTypes', 'product', 'selectedSolutions','providers'));
     }
 
     /**

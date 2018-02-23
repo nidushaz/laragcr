@@ -33,6 +33,18 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label>Solution Provider</label>
+                                <select class="form-control select2" required="required" id="solution_provider" name="solution_provider">
+                                    <option value="">Choose Provider</option>
+                                    <?php $__currentLoopData = $providers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $provider): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($provider->getId()); ?>" <?php if(isset($product)): ?> <?php echo e($provider->getId() == $product->getProductProviderId()->getId() ? "selected=selected" : ""); ?> <?php endif; ?> ><?php echo e($provider->getFirstName()); ?> <?php echo e($provider->getLastName()); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <label>Meta Title</label>
                                 <input class="form-control" required="required" placeholder="Meta Title" type="text" name="metaTitle"  value="<?php if(isset($product)): ?><?php echo e($product->getMetaTitle()); ?> <?php endif; ?>">
                             </div>
@@ -43,7 +55,7 @@
                                 <input class="form-control" required="required" placeholder="Meta Keywords" type="text" name="metaKeywords"  value="<?php if(isset($product)): ?><?php echo e($product->getMetaKeywords()); ?> <?php endif; ?>">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label>Meta Description</label>
                                 <textarea rows="5" class="form-control" required="required" placeholder="Meta Description" name="metaDescription" id="metaDescription"><?php if(isset($product)): ?><?php echo e($product->getMetaDescription()); ?> <?php endif; ?></textarea>

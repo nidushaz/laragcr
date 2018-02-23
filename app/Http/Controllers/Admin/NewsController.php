@@ -137,4 +137,9 @@ class NewsController extends Controller
         echo $result;
 
     }
+
+    public function dynamicForm($id=null){
+        $id = $this->newsService->getActiveNews($id);
+       return view('admin.Form.eventForm',compact('id'));
+    }
 }

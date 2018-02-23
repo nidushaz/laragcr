@@ -42,6 +42,10 @@ class News
      */
     private $tag ;
 
+    /**
+     * @ORM\Column(type="string",nullable=true)
+     */
+    private $type;
 
     /**
      * @ORM\Column(type="text")
@@ -63,6 +67,21 @@ class News
      * @ORM\Column(type="boolean")
      */
     private $isActive;
+
+    /**
+     * @ORM\Column(type="string",nullable=true)
+     */
+    private $source;
+
+    /**
+     * @ORM\Column(type="datetime",nullable=true)
+     */
+    private $eventStartDate;
+
+    /**
+     * @ORM\Column(type="datetime",nullable=true)
+     */
+    private $eventEndDate;
 
     /**
      * @ORM\Column(type="datetime")
@@ -253,6 +272,70 @@ class News
     public function setIsActive($isActive)
     {
         $this->isActive = $isActive;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSource()
+    {
+        return $this->source;
+    }
+
+    /**
+     * @param mixed $source
+     */
+    public function setSource($source)
+    {
+        $this->source = $source;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEventStartDate()
+    {
+        return $this->eventStartDate;
+    }
+
+    /**
+     * @param mixed $eventStartDate
+     */
+    public function setEventStartDate($eventStartDate)
+    {
+        $this->eventStartDate = $eventStartDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEventEndDate()
+    {
+        return $this->eventEndDate;
+    }
+
+    /**
+     * @param mixed $eventEndDate
+     */
+    public function setEventEndDate($eventEndDate)
+    {
+        $this->eventEndDate = $eventEndDate;
     }
 
 

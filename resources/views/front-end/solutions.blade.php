@@ -15,7 +15,8 @@
             @forelse($solutions as $solution)
                 <a href ="{{route('solutions.list',['id'=>$solution->getId()])}}">
             <div class="grid">
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+			<div class="fortSolut">
+                <div class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                     <figure class="effect-zoe">
                         <img src="{{asset($solution->getImage())}}" class="img-responsive" alt="solu-img1">
                         <figcaption>
@@ -25,6 +26,7 @@
                     </figure>
 
                 </div>
+				</div>
             </div>
                 </a>
                 @empty

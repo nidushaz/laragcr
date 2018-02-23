@@ -76,7 +76,11 @@ class SolutionType
      */
     private $videoId;
 
-
+    /**
+     * @ORM\OneToMany(targetEntity="SolutionTypeImageX", mappedBy="solutionTypeImageId")
+     * @var ArrayCollection|SolutionTypeImageX[]
+     */
+    private $solutionImage;
     /**
      * @return mixed
      */
@@ -219,6 +223,22 @@ class SolutionType
     public function setProductId($productId)
     {
         $this->productId = $productId;
+    }
+
+    /**
+     * @return SolutionTypeImageX[]|ArrayCollection
+     */
+    public function getSolutionImage()
+    {
+        return $this->solutionImage;
+    }
+
+    /**
+     * @param SolutionTypeImageX[]|ArrayCollection $solutionImage
+     */
+    public function setSolutionImage($solutionImage)
+    {
+        $this->solutionImage = $solutionImage;
     }
 
 

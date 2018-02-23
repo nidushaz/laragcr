@@ -10,10 +10,15 @@
             </div>
         </div>
         <div class="col-sm-6">
-            <div class="form-group">
-                <label> Tags  </label><br/>
-                <input class="form-control tags" required="required" type="text" name="tags[]" placeholder="Add Tags"/>
-            </div>
+
+            <label>Solution</label>
+            <select class="form-control select2" required="required" id="sol_id" name="solution[]">
+                <option value="">Choose Solution</option>
+                <?php $__currentLoopData = $solutions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $solution): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <option value="<?php echo e($solution->getId()); ?>"><?php echo e($solution->getName()); ?></option>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+            </select>
         </div>
     </div>
 </div>
@@ -30,7 +35,7 @@
         <div class="col-sm-5">
             <div class="form-group">
                 <label> </label>
-                ggg
+
             </div>
         </div>
         <div class="col-sm-1">

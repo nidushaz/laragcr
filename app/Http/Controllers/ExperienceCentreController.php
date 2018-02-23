@@ -26,6 +26,7 @@ class ExperienceCentreController extends Controller
 
         $this->route = Route::current();
         $route_name = strpos($this->route->getName(), ".") !== false?substr($this->route->getName(),0 ,strpos($this->route->getName(), ".")):$this->route->getName();
+
         $this->page_id = $this->pageBannerService->getPageId($route_name);
         $this->content = $this->pageBannerService->getPageContent($this->page_id);
         $this->banner = $this->pageBannerService->getPageBanner($this->page_id);

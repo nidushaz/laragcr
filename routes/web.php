@@ -19,7 +19,9 @@ Route::get('/experience-centre/{id}','ExperienceCentreController@show')->name('e
 Route::get('/contact','ContactController@index')->name('contact');
 Route::post('/contact','ContactController@send')->name('contact.submit');
 Route::get('/news','NewsController@index')->name('news');
-
+Route::get('/news/{id}','NewsController@list')->name('news.list');
+Route::get('/channel-partner','ChannelPartnerController@index')->name('channel-partners');
+Route::get('/about-GCR','AboutController@index')->name('about-GCR');
 
 
 Auth::routes();
@@ -44,14 +46,15 @@ Route::group(['prefix'=>'admin'],function(){
     Route::resource('/solution-type','Admin\SolutionTypeController');
     Route::resource('/category','Admin\CategoryController');
     Route::resource('/partners','Admin\SolutionPartnerController');
+    Route::resource('/providers','Admin\SolutionProviderController');
     Route::resource('/experience-centre','Admin\VideosController');
-        Route::resource('/solutions','Admin\ProductController');
+    Route::resource('/solutions','Admin\ProductController');
     Route::resource('/ads','Admin\AdController');
-        Route::resource('/testimonials','Admin\ClientTestimonialController');
-    Route::get('/experience-form',function(){
-        return view('admin.Form.experienceForm');
-    })->name('experience-form');
+    Route::resource('/testimonials','Admin\ClientTestimonialController');
+    Route::get('/experience-form','Admin\VideosController@dynamicForm')->name('experience-form');
+    Route::get('/events-form/{id?}','Admin\NewsController@dynamicForm')->name('events-form');
 	Route::resource('/news','Admin\NewsController');
+	Route::resource('/roles','Admin\RoleController');
 	});
 });
 

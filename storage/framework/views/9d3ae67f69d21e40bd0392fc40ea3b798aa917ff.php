@@ -76,6 +76,7 @@ wizard initialization
 <!--form validation init-->
 <script src="<?php echo e(asset('plugins/summernote/dist/summernote.min.js')); ?>"></script>
 <script src="<?php echo e(asset('plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js')); ?>"></script>
+<script src="<?php echo e(asset('plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')); ?>"></script>
 <script>
     $(".select2").select2();
     jQuery(document).ready(function(){
@@ -193,6 +194,11 @@ wizard initialization
         $('.tags').tagsinput({
             maxTags: 50
         });
+        jQuery('#start-event,#end-event').datepicker({
+            autoclose: true,
+            todayHighlight: true
+        });
+
     });
 
     $("body").on("change",".actimage",function(){
@@ -239,10 +245,31 @@ wizard initialization
 	
 	$(document).ready(function(){
         $(".actimage").next(".input-group").children(".form-control").css("display","none");
+        // date time picker
+        jQuery('#start-event,#end-event').datepicker({
+            autoclose: true,
+            todayHighlight: true
+        });
+        // add event date and location in news page
+        $("body").on("change","#type",function(){
+            if($(this).val()==2){
+                $.ajax({
+                    url:$(this).attr('data-route'),
+                    success:function(html){
+                        $(".type").fadeIn('slow').html(html);
+                    },
+                    dataType:'html'
+
+                })
+
+            }else{
+                $(".type").html("");
+            }
+        })
     });
 
     $("body").on("click", ".removeBtn", function(){
-        $(this).parent().parent().remove();
+
     });
 	
 	$("body").on("click", ".fadeDiv", function(){

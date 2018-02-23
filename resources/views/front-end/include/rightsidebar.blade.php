@@ -4,14 +4,24 @@
 
     @forelse($news as $new)
 
-    <h3>{{$new->news_heading}}</h3>
+    <h3><a href="{{route('news.list',['id'=>$new->id])}}">{{\Illuminate\Support\Str::words($new->news_heading,7,'')}} </a></h3>
     <div><img src="{{asset($new->thumbnail)}}" class="img-responsive" alt="right-side-img"></div>
-        <p>{!! \Illuminate\Support\Str::words($new->news_summary, 5,' ...')  !!}</p>
+     <!--    <p>{!! \Illuminate\Support\Str::words($new->news_summary, 5,' ...')  !!}</p> -->
     @empty
         No News Found
     @endforelse
     <div class="clearfix"></div>
-    <h2>EDMs</h2>
+<div class="event">
+    <h1>Events</h1>
     <div class="clearfix"></div>
-    <div><img src="{{asset('images/front-images/edm-img.jpg')}}" class="img-responsive" alt="edm-img"></div>
+
+    @forelse($events as $event)
+
+    <h3><a href="{{route('news.list',['id'=>$event->id])}}">{{\Illuminate\Support\Str::words($event->news_heading,7,'')}}</a></h3>
+    <div><img src="{{asset($event->thumbnail)}}" class="img-responsive" alt="right-side-img"></div>
+	</div>
+        <!-- <p>{!! \Illuminate\Support\Str::words($event->news_summary, 5,' ...')  !!}</p> -->
+    @empty
+        No Events Found
+    @endforelse
 </div>

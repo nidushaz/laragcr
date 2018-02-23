@@ -3,7 +3,7 @@
     <!-- LOGO -->
     <div class="topbar-left">
         <div class="text-center">
-            <a href="index.html" class="logo"><i class="icon-magnet icon-c-logo"></i><span>Ub<i class="md md-album"></i>ld</span></a>
+            <a href="index.html" class="logo"><i class="icon-magnet icon-c-logo"></i><span>GCR Admin</span></a>
         </div>
     </div>
 
@@ -18,22 +18,22 @@
                     <span class="clearfix"></span>
                 </div>
 
-                <form role="search" class="navbar-left app-search pull-left hidden-xs">
-                    <input type="text" placeholder="Search..." class="form-control">
-                    <a href=""><i class="fa fa-search"></i></a>
-                </form>
+                {{--<form role="search" class="navbar-left app-search pull-left hidden-xs">--}}
+                    {{--<input type="text" placeholder="Search..." class="form-control">--}}
+                    {{--<a href=""><i class="fa fa-search"></i></a>--}}
+                {{--</form>--}}
 
 
                 <ul class="nav navbar-nav navbar-right pull-right">
-                    <li class="dropdown hidden-xs">
+                    <!--<li class="dropdown hidden-xs">
                         <a href="#" data-target="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">
                             <i class="icon-bell"></i> <span class="badge badge-xs badge-danger">3</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-lg">
                             <li class="notifi-title"><span class="label label-default pull-right">New 3</span>Notification</li>
-                            <li class="list-group nicescroll notification-list">
+                            <li class="list-group nicescroll notification-list">-->
                                 <!-- list item-->
-                                <a href="javascript:void(0);" class="list-group-item">
+                                <!--<a href="javascript:void(0);" class="list-group-item">
                                     <div class="media">
                                         <div class="pull-left p-r-10">
                                             <em class="fa fa-diamond fa-2x text-primary"></em>
@@ -45,10 +45,10 @@
                                             </p>
                                         </div>
                                     </div>
-                                </a>
+                                </a> -->
 
                                 <!-- list item-->
-                                <a href="javascript:void(0);" class="list-group-item">
+                               <!-- <a href="javascript:void(0);" class="list-group-item">
                                     <div class="media">
                                         <div class="pull-left p-r-10">
                                             <em class="fa fa-cog fa-2x text-custom"></em>
@@ -60,10 +60,10 @@
                                             </p>
                                         </div>
                                     </div>
-                                </a>
+                                </a> -->
 
                                 <!-- list item-->
-                                <a href="javascript:void(0);" class="list-group-item">
+                               <!-- <a href="javascript:void(0);" class="list-group-item">
                                     <div class="media">
                                         <div class="pull-left p-r-10">
                                             <em class="fa fa-bell-o fa-2x text-danger"></em>
@@ -75,10 +75,10 @@
                                             </p>
                                         </div>
                                     </div>
-                                </a>
+                                </a> -->
 
                                 <!-- list item-->
-                                <a href="javascript:void(0);" class="list-group-item">
+                             <!--   <a href="javascript:void(0);" class="list-group-item">
                                     <div class="media">
                                         <div class="pull-left p-r-10">
                                             <em class="fa fa-user-plus fa-2x text-info"></em>
@@ -90,10 +90,10 @@
                                             </p>
                                         </div>
                                     </div>
-                                </a>
+                                </a> -->
 
                                 <!-- list item-->
-                                <a href="javascript:void(0);" class="list-group-item">
+                                <!--<a href="javascript:void(0);" class="list-group-item">
                                     <div class="media">
                                         <div class="pull-left p-r-10">
                                             <em class="fa fa-diamond fa-2x text-primary"></em>
@@ -105,10 +105,10 @@
                                             </p>
                                         </div>
                                     </div>
-                                </a>
+                                </a> -->
 
                                 <!-- list item-->
-                                <a href="javascript:void(0);" class="list-group-item">
+                               <!-- <a href="javascript:void(0);" class="list-group-item">
                                     <div class="media">
                                         <div class="pull-left p-r-10">
                                             <em class="fa fa-cog fa-2x text-custom"></em>
@@ -128,13 +128,13 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li>-->
                     <li class="hidden-xs">
                         <a href="#" id="btn-fullscreen" class="waves-effect waves-light"><i class="icon-size-fullscreen"></i></a>
                     </li>
-                    <li class="hidden-xs">
-                        <a href="#" class="right-bar-toggle waves-effect waves-light"><i class="icon-settings"></i></a>
-                    </li>
+                    {{--<li class="hidden-xs">--}}
+                        {{--<a href="#" class="right-bar-toggle waves-effect waves-light"><i class="icon-settings"></i></a>--}}
+                    {{--</li>--}}
                     <li class="dropdown">
                         <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true"><img src="assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle"> </a>
                         <ul class="dropdown-menu">

@@ -16,16 +16,18 @@ use App\Repositories\CountryRepo;
 use App\Repositories\ProductRepo;
 use App\Repositories\SolutionTypeRepo;
 use App\Services\ProductService;
+use App\Repositories\SolutionProviderRepo;
 
 class ProductServiceImpl implements ProductService{
 
-    private $productRepo, $solutionTypeRepo, $countryRepo, $uploadService;
+    private $productRepo, $solutionTypeRepo, $countryRepo, $uploadService,$solutionProvider;
 
-    public function __construct(ProductRepo $productRepo, SolutionTypeRepo $solutionTypeRepo, CountryRepo $countryRepo, UploadService $uploadService){
+    public function __construct(ProductRepo $productRepo, SolutionTypeRepo $solutionTypeRepo, CountryRepo $countryRepo, UploadService $uploadService,SolutionProviderRepo $solutionProviderRepo){
         $this->productRepo = $productRepo;
         $this->solutionTypeRepo = $solutionTypeRepo;
         $this->countryRepo = $countryRepo;
         $this->uploadService = $uploadService;
+        $this->solutionProviderRepo = $solutionProviderRepo;
     }
 
     public function getAllProducts(){
@@ -47,6 +49,7 @@ class ProductServiceImpl implements ProductService{
         $product->setMetaKeywords($data->get('metaKeywords'));
         $product->setIsActive(1);
         $product->setDeleted(0);
+        $product->setProductProviderId($this->solutionProviderRepo->findById($data->get('solution_provider')));
         $product->setCreatedAt(new \DateTime(now()));
         $product->setUpdatedAt(new \DateTime(now()));
         $productSolutionTypeIds = $data->get('productSolutionTypeId');

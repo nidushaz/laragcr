@@ -107,7 +107,7 @@ class Product
 
 
     /**
-     * @ORM\OneToMany(targetEntity="productDetails", mappedBy="product")
+     * @ORM\OneToMany(targetEntity="ProductDetails", mappedBy="product")
      */
     private $productDetails;
 

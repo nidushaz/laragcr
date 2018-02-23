@@ -78,6 +78,53 @@
                             </div>
                         </div>
                         <?php endif; ?>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Image</label>
+                                <button style="float:right;" type="button" class="btn btn-icon waves-effect btn-default waves-light genImg"> <i class="fa fa-plus"></i> </button>
+                            </div>
+                            <div class="col-md-12 imgGrid">
+                                <div class="form-group">
+                                    <?php echo e(csrf_field()); ?>
+
+                                    <?php if(isset($type)): ?>
+                                        <input type="hidden" name="id" value="<?php echo e($type->getId()); ?>">
+                                        <input type="hidden" name="_method" value="PUT">
+
+                                        <?php $__currentLoopData = $type->getSolutionImage(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <span class="close fadeDiv">X</span>
+                                                    <img class="img-thumbnail thumb-lg" src="<?php echo e(asset($value->getMediaUrl())); ?>" alt=""><br/><br/>
+                                                    <input type="hidden" class="imageUrl" value="<?php echo e($value->getMediaUrl()); ?>" name="imageUrl[]"/>
+
+                                                    <input class="filestyle actimage" data-size="sm" placeholder="Browse Image" type="file" name="actimage[]"/>
+                                                </div>
+                                            </div>
+
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                                    <?php else: ?>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <img class="img-thumbnail thumb-lg" src="" alt=""><span class="close fadeDiv">X</span><br/><br/>
+
+                                                <input class="filestyle actimage" data-size="sm" placeholder="Browse Image" type="file" name="actimage[]"/>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        </div>
                         <div class="row">
                             <button type="submit" class="btn btn-default waves-effect waves-light btn-md">
                                 Submit

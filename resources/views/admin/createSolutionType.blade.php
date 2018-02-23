@@ -78,6 +78,52 @@
                             </div>
                         </div>
                         @endisset
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Image</label>
+                                <button style="float:right;" type="button" class="btn btn-icon waves-effect btn-default waves-light genImg"> <i class="fa fa-plus"></i> </button>
+                            </div>
+                            <div class="col-md-12 imgGrid">
+                                <div class="form-group">
+                                    {{ csrf_field() }}
+                                    @if (isset($type))
+                                        <input type="hidden" name="id" value="{{$type->getId()}}">
+                                        <input type="hidden" name="_method" value="PUT">
+
+                                        @foreach($type->getSolutionImage() as $key=>$value)
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <span class="close fadeDiv">X</span>
+                                                    <img class="img-thumbnail thumb-lg" src="{{asset($value->getMediaUrl())}}" alt=""><br/><br/>
+                                                    <input type="hidden" class="imageUrl" value="{{$value->getMediaUrl()}}" name="imageUrl[]"/>
+
+                                                    <input class="filestyle actimage" data-size="sm" placeholder="Browse Image" type="file" name="actimage[]"/>
+                                                </div>
+                                            </div>
+
+                                        @endforeach
+
+                                    @else
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <img class="img-thumbnail thumb-lg" src="" alt=""><span class="close fadeDiv">X</span><br/><br/>
+
+                                                <input class="filestyle actimage" data-size="sm" placeholder="Browse Image" type="file" name="actimage[]"/>
+                                            </div>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                            {{--<div class="col-md-5" id="img-preview">--}}
+                            {{--@isset($news)--}}
+                            {{--@foreach($news->getNewsAttachment() as $key=>$value)--}}
+                            {{--<img class="img-thumbnail thumb-lg" src="{{asset($value->getAttachment())}}" alt="">--}}
+                            {{--@endforeach--}}
+                            {{--@endisset--}}
+                            {{--<button type="button" class="btn btn-icon waves-effect btn-default waves-light genImg"> <i class="fa fa-plus"></i> </button>--}}
+                            {{--</div>--}}
+                        </div>
                         <div class="row">
                             <button type="submit" class="btn btn-default waves-effect waves-light btn-md">
                                 Submit

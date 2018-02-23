@@ -7,23 +7,27 @@
  */
 
 namespace App\Services\Impl;
+use App\Entities\VideoSolutionTypeX;
 use App\Services\VideosService;
 use App\Repositories\VideosRepo;
 use Illuminate\Support\Facades\Input;
 use App\Entities\Videos;
 use App\Repositories\CategoryRepo;
 use App\Services\TagService;
+use App\Repositories\SolutionTypeRepo;
 class VideosServiceImpl implements  VideosService
 {
 
     protected $videosRepo;
     protected $cat;
     protected $tags;
-    public function __construct(VideosRepo $videosRepo,CategoryRepo $cat,TagService $tagService)
+    protected $solutionTypeRepo;
+    public function __construct(VideosRepo $videosRepo,CategoryRepo $cat,TagService $tagService,SolutionTypeRepo $solutionTypeRepo)
     {
         $this->videosRepo = $videosRepo;
         $this->cat = $cat;
         $this->tags = $tagService;
+        $this->solutionTypeRepo = $solutionTypeRepo;
     }
 
     public function getAllVideos()
@@ -77,23 +81,29 @@ class VideosServiceImpl implements  VideosService
     }
     public function setArray($data)
     {
-        $exp_centre = new Videos();
+
        $arr_length = count($data->get('title'));
        $input_array = Input::all();
        $combined_array = [];
        for($i=0; $i<$arr_length;$i++){
            // check new tags is exist?if no then add to in tags entity
-           $this->tags->checkTags($input_array['tags'][$i]);
+           //$this->tags->checkTags($input_array['tags'][$i]);
            $cat_id = $this->cat->findCategory($data->get('category'));
-
+           $exp_centre = new Videos();
            $exp_centre->setCategoryId($cat_id);
            $exp_centre->setTitle($input_array['title'][$i]);
-           $exp_centre->setTag($input_array['tags'][$i]);
+           //$exp_centre->setTag($input_array['tags'][$i]);
            $exp_centre->setMediaUrl($input_array['url'][$i]);
-           $exp_centre->setIsActive(1);
+           (isset($input_array['active'][$i]))?$exp_centre->setIsActive($input_array['active'][$i]):$exp_centre->setIsActive(1);
            $exp_centre->setCreatedAt(new \DateTime(now()));
            $exp_centre->setDeleted(0);
+           $expSol = new VideoSolutionTypeX();
+           $expSol->setVideoSolutionTypeId($this->solutionTypeRepo->getSolutionType($input_array['solution'][$i]));
+           $expSol->setIsActive(1);
+           $expSol->setDeleted(0);
+           $exp_centre->addVideoSolX($expSol);
            $this->videosRepo->addVideo($exp_centre);
+
        }
 
        //print_r($data->all());
