@@ -2,101 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31294135-22c4-4acd-ae7d-67bcd870f9be" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Entities/SolutionTypeImageX.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Repositories/EventsRepo.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Repositories/SolutionProviderRepo.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Services/EventsService.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Services/Impl/EventsServiceImpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Services/Impl/SolutionProviderServiceImpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Services/SolutionProviderService.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/Form/eventForm.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/role.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/solutionProvider.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/solutionProviders.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/front-end/aboutus.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/front-end/channelpartner.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/front-end/newslist.blade.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/front-end/newsinfo.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/framework/sessions/3n5GATnEx72qxOJcDEsBr3tOyJAoge5MrJQu7wDO" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/framework/sessions/I2Qn5117QXZGLfM6hnDcqg5WN1tETpDiS4QBaF2G" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/front-images/Thumbs.db" afterPath="$PROJECT_DIR$/public/images/front-images/Thumbs.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/front-images/slider/Thumbs.db" afterPath="$PROJECT_DIR$/public/images/front-images/slider/Thumbs.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Events.php" afterPath="$PROJECT_DIR$/app/Entities/Events.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/News.php" afterPath="$PROJECT_DIR$/app/Entities/News.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/PageContent.php" afterPath="$PROJECT_DIR$/app/Entities/PageContent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Product.php" afterPath="$PROJECT_DIR$/app/Entities/Product.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/SolutionType.php" afterPath="$PROJECT_DIR$/app/Entities/SolutionType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/VideoSolutionTypeX.php" afterPath="$PROJECT_DIR$/app/Entities/VideoSolutionTypeX.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Entities/Videos.php" afterPath="$PROJECT_DIR$/app/Entities/Videos.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/NewsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/NewsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/SolutionPartnerController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SolutionPartnerController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/VideosController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/VideosController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ExperienceCentreController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExperienceCentreController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/NewsRepo.php" afterPath="$PROJECT_DIR$/app/Repositories/NewsRepo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/SolutionTypeRepo.php" afterPath="$PROJECT_DIR$/app/Repositories/SolutionTypeRepo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/VideosRepo.php" afterPath="$PROJECT_DIR$/app/Repositories/VideosRepo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/Impl/NewsServiceImpl.php" afterPath="$PROJECT_DIR$/app/Services/Impl/NewsServiceImpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/Impl/ProductServiceImpl.php" afterPath="$PROJECT_DIR$/app/Services/Impl/ProductServiceImpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/Impl/VideosServiceImpl.php" afterPath="$PROJECT_DIR$/app/Services/Impl/VideosServiceImpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/NewsService.php" afterPath="$PROJECT_DIR$/app/Services/NewsService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/public/css/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/css/front-css/set1.css" afterPath="$PROJECT_DIR$/public/css/css/front-css/set1.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/css/front-css/slick.css" afterPath="$PROJECT_DIR$/public/css/css/front-css/slick.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/css/front-css/style.css" afterPath="$PROJECT_DIR$/public/css/css/front-css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/front-js/slick.js" afterPath="$PROJECT_DIR$/public/js/front-js/slick.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/Form/experienceForm.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/Form/experienceForm.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/createExperienceCentre.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/createExperienceCentre.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/createNews.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/createNews.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/createSolutionType.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/createSolutionType.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/include/headBolt.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/include/headBolt.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/include/headerBolt.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/include/headerBolt.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/include/jsBolt.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/include/jsBolt.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/include/leftSidebarBolt.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/include/leftSidebarBolt.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/news.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/news.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/page.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/page.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/product.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/product.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front-end/contact.blade.php" afterPath="$PROJECT_DIR$/resources/views/front-end/contact.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front-end/home.blade.php" afterPath="$PROJECT_DIR$/resources/views/front-end/home.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front-end/include/banner-area.blade.php" afterPath="$PROJECT_DIR$/resources/views/front-end/include/banner-area.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front-end/include/footer.blade.php" afterPath="$PROJECT_DIR$/resources/views/front-end/include/footer.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front-end/include/head.blade.php" afterPath="$PROJECT_DIR$/resources/views/front-end/include/head.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front-end/include/header.blade.php" afterPath="$PROJECT_DIR$/resources/views/front-end/include/header.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front-end/include/jsLib.blade.php" afterPath="$PROJECT_DIR$/resources/views/front-end/include/jsLib.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front-end/include/leftsidebar.blade.php" afterPath="$PROJECT_DIR$/resources/views/front-end/include/leftsidebar.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front-end/include/rightsidebar.blade.php" afterPath="$PROJECT_DIR$/resources/views/front-end/include/rightsidebar.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front-end/layouts/frontLayout.blade.php" afterPath="$PROJECT_DIR$/resources/views/front-end/layouts/frontLayout.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front-end/news.blade.php" afterPath="$PROJECT_DIR$/resources/views/front-end/news.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front-end/solutions.blade.php" afterPath="$PROJECT_DIR$/resources/views/front-end/solutions.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/00d3342f3c8ffa62a82537d27c1df8f993f746f2.php" afterPath="$PROJECT_DIR$/storage/framework/views/00d3342f3c8ffa62a82537d27c1df8f993f746f2.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/0230d83b267f6ed539ea730de7408245d887c1c3.php" afterPath="$PROJECT_DIR$/storage/framework/views/0230d83b267f6ed539ea730de7408245d887c1c3.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/1243078f1edea8d310d64efb6f0a867a5c46bcfc.php" afterPath="$PROJECT_DIR$/storage/framework/views/1243078f1edea8d310d64efb6f0a867a5c46bcfc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/2d787d6e6034b2e482a9660932bd76d49c32b5bb.php" afterPath="$PROJECT_DIR$/storage/framework/views/2d787d6e6034b2e482a9660932bd76d49c32b5bb.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/34a45a98c1b7611f616ac952708e6b5f4d6d350b.php" afterPath="$PROJECT_DIR$/storage/framework/views/34a45a98c1b7611f616ac952708e6b5f4d6d350b.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/357661636c712848202a401dffc4252f0e16a677.php" afterPath="$PROJECT_DIR$/storage/framework/views/357661636c712848202a401dffc4252f0e16a677.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/49028aa65e0c9225884daff4c1a7d59e5cfbc02f.php" afterPath="$PROJECT_DIR$/storage/framework/views/49028aa65e0c9225884daff4c1a7d59e5cfbc02f.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/4e2c8923c98c4d64f58cf148d6ea05a14613cde4.php" afterPath="$PROJECT_DIR$/storage/framework/views/4e2c8923c98c4d64f58cf148d6ea05a14613cde4.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/61131e3c90e47592a01c0709292804de13f456ab.php" afterPath="$PROJECT_DIR$/storage/framework/views/61131e3c90e47592a01c0709292804de13f456ab.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/6d4e28860b2f697f73e7b8c9f693bdf17cfa2ebc.php" afterPath="$PROJECT_DIR$/storage/framework/views/6d4e28860b2f697f73e7b8c9f693bdf17cfa2ebc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/6fb758b0291660ec56339ed810832b5567dc9416.php" afterPath="$PROJECT_DIR$/storage/framework/views/6fb758b0291660ec56339ed810832b5567dc9416.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/753bd4cf9198931a20ac7b3993916febb3466c53.php" afterPath="$PROJECT_DIR$/storage/framework/views/753bd4cf9198931a20ac7b3993916febb3466c53.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/7b165f047bc347a4d121b9b66185deb50f60bbef.php" afterPath="$PROJECT_DIR$/storage/framework/views/7b165f047bc347a4d121b9b66185deb50f60bbef.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/7c64feb362f85d17948b87e37e05bb18b3254f1e.php" afterPath="$PROJECT_DIR$/storage/framework/views/7c64feb362f85d17948b87e37e05bb18b3254f1e.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/8b80bcb223a6d29c0602c4c421d58ccfb7a0e772.php" afterPath="$PROJECT_DIR$/storage/framework/views/8b80bcb223a6d29c0602c4c421d58ccfb7a0e772.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/959f68a077d4a3e4397523ebc9f26ea9e78cc22a.php" afterPath="$PROJECT_DIR$/storage/framework/views/959f68a077d4a3e4397523ebc9f26ea9e78cc22a.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/9d3ae67f69d21e40bd0392fc40ea3b798aa917ff.php" afterPath="$PROJECT_DIR$/storage/framework/views/9d3ae67f69d21e40bd0392fc40ea3b798aa917ff.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/a441575aa79d379d5c218e23f6f4238726315823.php" afterPath="$PROJECT_DIR$/storage/framework/views/a441575aa79d379d5c218e23f6f4238726315823.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/a6a7366818fae0de2f5519ebe3968ace5eabab30.php" afterPath="$PROJECT_DIR$/storage/framework/views/a6a7366818fae0de2f5519ebe3968ace5eabab30.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/cfb902441a33125188ca1fde60b207f1883092b2.php" afterPath="$PROJECT_DIR$/storage/framework/views/cfb902441a33125188ca1fde60b207f1883092b2.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/dfcb5db61aa1eefecdc8678546b9399490cae61d.php" afterPath="$PROJECT_DIR$/storage/framework/views/dfcb5db61aa1eefecdc8678546b9399490cae61d.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/e82335657c475a425a1dab9fc7662fd26d5dae48.php" afterPath="$PROJECT_DIR$/storage/framework/views/e82335657c475a425a1dab9fc7662fd26d5dae48.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/views/f8cb09f78d9ae36deacdace448fd6246f3a04eb9.php" afterPath="$PROJECT_DIR$/storage/framework/views/f8cb09f78d9ae36deacdace448fd6246f3a04eb9.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/logs/laravel.log" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -773,12 +679,12 @@
       <workItem from="1519099338000" duration="19819000" />
       <workItem from="1519186029253" duration="18983000" />
       <workItem from="1519278456983" duration="16557000" />
-      <workItem from="1519358815650" duration="13940000" />
+      <workItem from="1519358815650" duration="14285000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="473007000" />
+    <option name="totallyTimeSpent" value="473352000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
