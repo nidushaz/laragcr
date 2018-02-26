@@ -94,7 +94,7 @@ class User implements Authenticatable
     private $profilePic;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean",nullable=true,options={"unsigned":true,"default":0})
      */
     private $isAdmin;
 
@@ -116,10 +116,10 @@ class User implements Authenticatable
     /**
      * @ORM\Column(type="string",options={"unsigned":true,"default":0})
      */
-     private $delete;
+     private $deleted;
 
     /**
-     * @ORM\OneToMany(targetEntity="UserRole", mappedBy="userId")
+     * @ORM\OneToMany(targetEntity="UserRole", mappedBy="userId",cascade={"persist"})
      */
     private $adminRole;
 
@@ -127,6 +127,11 @@ class User implements Authenticatable
      * @ORM\OneToMany(targetEntity="Provider", mappedBy="userId")
      */
     private $provider;
+
+    public function __construct()
+    {
+        $this->adminRole = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -211,18 +216,20 @@ class User implements Authenticatable
     /**
      * @return mixed
      */
-    public function getDelete()
+    public function getDeleted()
     {
-        return $this->delete;
+        return $this->deleted;
     }
 
     /**
-     * @param mixed $delete
+     * @param mixed $deleted
      */
-    public function setDelete($delete)
+    public function setDeleted($deleted)
     {
-        $this->delete = $delete;
+        $this->deleted = $deleted;
     }
+
+
 
     /**
      * @return mixed
@@ -353,6 +360,11 @@ class User implements Authenticatable
     }
 
 
+    public function addUserRole(UserRole $userRole)
+    {
+        $userRole->setUserId($this);
+        $this->adminRole->add($userRole);
+    }
 
 
 }

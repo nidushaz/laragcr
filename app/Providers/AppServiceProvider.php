@@ -19,23 +19,27 @@ use App\Services\Impl\OfficeServiceImpl;
 use App\Services\Impl\PageBannerServiceImpl;
 use App\Services\Impl\ProductServiceImpl;
 use App\Services\Impl\ProductTypeServiceImpl;
+use App\Services\Impl\RoleServiceImpl;
 use App\Services\Impl\SolutionPartnerServiceImpl;
 use App\Services\Impl\SolutionProviderServiceImpl;
 use App\Services\Impl\SolutionTypeServiceImpl;
 use App\Services\Impl\TagServiceImpl;
 use App\Services\Impl\TestServiceImpl;
+use App\Services\Impl\UserServiceImpl;
 use App\Services\Impl\VideosServiceImpl;
 use App\Services\IndustryService;
 use App\Services\OfficeService;
 use App\Services\PageBannerService;
 use App\Services\ProductService;
 use App\Services\ProductTypeService;
+use App\Services\RoleService;
 use App\Services\SolutionPartnerService;
 use App\Services\SolutionProviderService;
 use App\Services\SolutionTypeService;
 use App\Services\NewsService;
 use App\Services\TagService;
 use App\Services\TestService;
+use App\Services\UserService;
 use App\Services\VideosService;
 use Illuminate\Support\ServiceProvider;
 
@@ -83,5 +87,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ContactService::class,ContactServiceImpl::class);
         $this->app->bind(OfficeService::class,OfficeServiceImpl::class);
         $this->app->bind(SolutionProviderService::class, SolutionProviderServiceImpl::class);
+        $this->app->bind(RoleService::class,RoleServiceImpl::class);
+        $this->app->bind(UserService::class,UserServiceImpl::class);
     }
 }

@@ -40,9 +40,9 @@ class UserRole
     private $userId;
 
     /**
-     * @ORM\Column(type="string",options={"unsigned":true,"default":0})
+     * @ORM\Column(type="boolean")
      */
-    private $delete;
+    private $deleted;
 
     /**
      * @ORM\Column(type="datetime")
@@ -87,23 +87,24 @@ class UserRole
         $this->roleId = $roleId;
     }
 
-
-
     /**
      * @return mixed
      */
-    public function getDelete()
+    public function getDeleted()
     {
-        return $this->delete;
+        return $this->deleted;
     }
 
     /**
-     * @param mixed $delete
+     * @param mixed $deleted
      */
-    public function setDelete($delete)
+    public function setDeleted($deleted)
     {
-        $this->delete = $delete;
+        $this->deleted = $deleted;
     }
+
+
+
 
     /**
      * @return mixed

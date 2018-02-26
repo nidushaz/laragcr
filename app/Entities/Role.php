@@ -39,7 +39,7 @@ class Role
     /**
      * @ORM\Column(type="boolean")
      */
-    private $delete;
+    private $deleted;
 
     /**
      * @ORM\Column(type="text")
@@ -156,18 +156,19 @@ class Role
     /**
      * @return mixed
      */
-    public function getDelete()
+    public function getDeleted()
     {
-        return $this->delete;
+        return $this->deleted;
     }
 
     /**
-     * @param mixed $delete
+     * @param mixed $deleted
      */
-    public function setDelete($delete)
+    public function setDeleted($deleted)
     {
-        $this->delete = $delete;
+        $this->deleted = $deleted;
     }
+
 
 
 

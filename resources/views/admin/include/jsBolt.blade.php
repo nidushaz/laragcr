@@ -72,7 +72,8 @@
 
 wizard initialization
 <script src="{{ asset('pages/jquery.wizard-init.js')}}" type="text/javascript"></script>-->
-
+<!--explorer js -->
+<script src="{{ asset('js/js/file-explore.js')}}" type="text/javascript"></script>
 <!--form validation init-->
 <script src="{{ asset('plugins/summernote/dist/summernote.min.js') }}"></script>
 <script src="{{asset('plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
@@ -80,7 +81,7 @@ wizard initialization
 <script>
     $(".select2").select2();
     jQuery(document).ready(function(){
-
+        $(".file-tree").filetree();
         $("body").on('keyup','.tagss',function () {
             alert($(this).val());
         })

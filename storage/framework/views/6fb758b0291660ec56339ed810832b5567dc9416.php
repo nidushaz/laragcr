@@ -7,6 +7,7 @@
     <title><?php echo $__env->yieldContent('title'); ?></title>
 
     <link rel="shortcut icon" href="<?php echo e(asset('images/favicon_1.ico' )); ?>">
+    <link href="<?php echo e(asset('css/css/file-explore.css')); ?>" rel="stylesheet">
     <link href="<?php echo e(asset('plugins/timepicker/bootstrap-timepicker.min.css')); ?>" rel="stylesheet">
     <link href="<?php echo e(asset('plugins/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css')); ?>" rel="stylesheet">
     <link href="<?php echo e(asset('plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')); ?>" rel="stylesheet">

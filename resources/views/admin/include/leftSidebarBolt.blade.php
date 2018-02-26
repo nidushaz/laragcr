@@ -39,6 +39,7 @@
             <li><a href="{{url('admin/solutions')}}"><i class="fa   fa-sitemap"></i>Solutions</a></li>
             <li><a href="{{url('admin/ads')}}"><i class="fa  fa-picture-o"></i>Ads</a></li>
             <li><a href="{{url('admin/testimonials')}}"><i class="fa  fa-quote-left"></i>Testimonials</a></li>
+            <li><a href="{{route('roles.index')}}"><i class="fa fa-user-secret"></i>Roles & Permission</a></li>
 
 
         </ul>

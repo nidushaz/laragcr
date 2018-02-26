@@ -55,6 +55,7 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('/events-form/{id?}','Admin\NewsController@dynamicForm')->name('events-form');
 	Route::resource('/news','Admin\NewsController');
 	Route::resource('/roles','Admin\RoleController');
+	Route::resource('/users','Admin\UserController');
 	});
 });
 

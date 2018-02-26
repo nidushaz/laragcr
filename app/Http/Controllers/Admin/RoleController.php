@@ -5,22 +5,28 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Services\RoleService;
 
 class RoleController extends Controller
 {
+    protected $roleService;
+    public function __construct(RoleService $roleService)
+    {
+       $this->roleService = $roleService;
+    }
 
     public function allRoutes(){
-        return $routes = Route::getRoutes();
-
-//         echo json_encode($routes,JSON_FORCE_OBJECT);exit;
-//        echo "<pre>";
-//        foreach ($routes as $route){
-//           echo $route->getName();
-//
-//            echo "\n";
-//        }
-//        exit;
+        $routes = Route::getRoutes();
+        $routesArray=[];
+        foreach ($routes as $route){
+            if($route->getPrefix()=='admin/'){
+                if(in_array('DELETE',$route->methods()) || in_array('GET',$route->methods())){
+                    // $routesArray[substr($route->getName(),0 ,strpos($route->getName(), "."))][] = ["page_name" =>substr($route->getName(),0 ,strpos($route->getName(), ".")),"page_method" => $route->getActionMethod(),"page_uri" =>$route->uri()];
+                    $routesArray[substr($route->getName(),0 ,strpos($route->getName(), "."))][$route->getActionMethod()] = ["pageName" =>substr($route->getName(),0 ,strpos($route->getName(), ".")),"pageMethod" => $route->getActionMethod(),"pageUri" =>$route->uri()];
+                }
+            }
+        }
+        return $routesArray;
     }
     /**
      * Display a listing of the resource.
@@ -28,32 +34,8 @@ class RoleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $routes  = $this->allRoutes();
-        $routers = [];
-        foreach ($routes as $route){
-         //echo  json_encode($route->methods(),JSON_FORCE_OBJECT);
-            if($route->getPrefix()=='admin/'){
-                if(in_array('DELETE',$route->methods()) || in_array('GET',$route->methods())){
-                    $routesArray['page_name'] = substr($route->getName(),0 ,strpos($route->getName(), "."));
-                    $routesArray['page_method'] = $route->getActionMethod();
-                    $routesArray['page_uri'] = $route->uri();
-                    array_push($routers,$routesArray);
-                }
-
-            }
-        }
-         //$routers = array_chunk($routers,5);
-        //print_r($routers);
-        $rout = [];
-        foreach ($routers as $r){
-                $r2[$r['page_name']]['page_name'] = $r['page_name'];
-                $r2[$r['page_name']]['page_method'] = $r['page_method'];
-                $r2[$r['page_name']]['page_uri'] = $r['page_uri'];
-                array_push($rout,$r2);
-        }
-        //$routers1 = array_chunk($rout,5);
-        print_r($rout);
-        //return view('admin.role',compact('routers'));
+        $roles = $this->roleService->getAllRoles();
+        return view('admin.roles',compact('roles'));
     }
 
     /**
@@ -63,7 +45,8 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        $routes  = $this->allRoutes();
+        return view('admin.role',['routers' => $routes]);
     }
 
     /**
@@ -74,7 +57,16 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+           "role" => "required",
+            "permission" => "required"
+        ]);
+        $result = $this->roleService->saveRole($request);
+        if($result){
+            return redirect()->route('roles.index')->with('success-msg', 'Role added successfully.');
+        }else{
+            return redirect()->route('roles.index')->with('error-msg', 'Please check the form and submit again.');
+        }
     }
 
     /**
@@ -96,7 +88,10 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $role = $this->roleService->getRoleById($id);
+        $permissions = json_decode($role->getPermissions());
+        $routes  = $this->allRoutes();
+        return view('admin.role',['routers' => $routes,'role'=>$role,'permissions'=>$permissions]);
     }
 
     /**
@@ -108,7 +103,18 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+            "role" => "required",
+            "permission" => "required",
+            "active" => "required"
+        ]);
+        $result = $this->roleService->updateRole($request,$id);
+        if($result){
+            return redirect()->route('roles.edit',['roles'=>$id])->with('success-msg', 'Role updated successfully.');
+        }else{
+            return redirect()->route('roles.edit',['roles'=>$id])->with('error-msg', 'Please check the form and submit again.');
+        }
     }
 
     /**
