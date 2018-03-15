@@ -43,9 +43,9 @@
                                             <?php $__currentLoopData = $router; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $route): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <ul>
                                                     <li>
-                                                        <input type="checkbox" name="permission[]" value="<?php echo e($route['pageUri']); ?>" <?php if(isset($role)): ?>  <?php if(isset($role)): ?>
+                                                        <input type="checkbox" name="permission[]" value="<?php echo e($route['pageName'].'.'.$route['pageMethod']); ?>" <?php if(isset($role)): ?>  <?php if(isset($role)): ?>
                                                         <?php $__currentLoopData = $permissions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $permission): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                        <?php if($route['pageUri']==$permission): ?> checked <?php else: ?>  <?php endif; ?>
+                                                        <?php if($route['pageName'].'.'.$route['pageMethod']==$permission): ?> checked <?php else: ?>  <?php endif; ?>
                                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                                 <?php endif; ?> <?php endif; ?>><?php if($route['pageMethod']=='destroy'): ?>  Delete <?php else: ?>  <?php echo e(ucfirst($route['pageMethod'])); ?> <?php endif; ?></li>
                                                     

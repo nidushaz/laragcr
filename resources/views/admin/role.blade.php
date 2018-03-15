@@ -43,9 +43,9 @@
                                             @foreach($router as $route)
                                                 <ul>
                                                     <li>
-                                                        <input type="checkbox" name="permission[]" value="{{$route['pageUri']}}" @isset($role)  @isset($role)
+                                                        <input type="checkbox" name="permission[]" value="{{$route['pageName'].'.'.$route['pageMethod']}}" @isset($role)  @isset($role)
                                                         @foreach($permissions as $permission)
-                                                        @if($route['pageUri']==$permission) checked @else  @endif
+                                                        @if($route['pageName'].'.'.$route['pageMethod']==$permission) checked @else  @endif
                                                                 @endforeach
                                                                 @endisset @endisset>@if($route['pageMethod']=='destroy')  Delete @else  {{ucfirst($route['pageMethod'])}} @endif</li>
                                                     {{--{{$route['pageName']}}--}}

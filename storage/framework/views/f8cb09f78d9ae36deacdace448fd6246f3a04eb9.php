@@ -4,7 +4,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="feature" style="background-image:none; padding:0px 0px 30px 0px">
             <div class="row">
-                <div class="flt"><h2>SOLUTION CATALOG</h2></div>
+                <div class="flt"><h2>Solution Catalog</h2><hr/></div>
                 <div class="flt">
                     <p>Win the shift to the micro-moments<br/>
                         Accelerate digital transition with cloud-based and networking solutions fulfilled to your business needs.</p>

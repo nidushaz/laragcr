@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\SolutionPartnerService;
-
+use App\Services\CheckPermissionService;
 class SolutionPartnerController extends Controller
 {
-    protected $solutionPartnerService;
-    public function __construct(SolutionPartnerService $partnerService)
+    protected $solutionPartnerService,$checkPermissionService;
+    public function __construct(SolutionPartnerService $partnerService,CheckPermissionService $checkPermissionService)
     {
         $this->solutionPartnerService = $partnerService;
+        $this->checkPermissionService = $checkPermissionService;
     }
 
     /**
@@ -22,7 +23,8 @@ class SolutionPartnerController extends Controller
     public function index()
     {
         $partners = $this->solutionPartnerService->getAllSolutionPartner();
-        return view('admin.solutionPartner',compact('partners'));
+        $isAuthorize = $this->checkPermissionService->checkPermission();
+        return view('admin.solutionPartner',compact('partners','isAuthorize'));
     }
 
     /**

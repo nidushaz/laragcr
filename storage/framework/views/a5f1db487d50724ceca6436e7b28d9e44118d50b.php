@@ -13,6 +13,7 @@
         </div>
 
         <div class="row">
+            <?php if(in_array('product-type.create', $isAuthorize)): ?>
             <div class="col-sm-12">
                 <div class="card-box">
                     <h4 class="m-t-0 header-title"><b>Add Product Type</b></h4>
@@ -32,6 +33,7 @@
                     </form>
                 </div>
             </div>
+                <?php endif; ?>
         </div>
 
 
@@ -68,10 +70,11 @@
                             </span>
                                 </td>
                                 <td>
+                                    <?php if(in_array('product-type.edit', $isAuthorize)): ?>
                                     <a href="#dataEdit" class="btn btn-icon waves-effect waves-light btn-white dataEdit" data-animation="fadein" data-plugin="custommodal" data-overlaySpeed="200" data-overlayColor="#36404a">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    &nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;<?php endif; ?>
                                     <button class="btn btn-icon waves-effect waves-light btn-danger rmv">
                                         <i class="fa fa-trash"></i>
                                     </button>

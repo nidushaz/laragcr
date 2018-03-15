@@ -3,15 +3,18 @@
     <div class="container">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="feature" style="background-image:none; padding:0px 0px 30px 0px">
-                <div class="row">
-                    <div class="flt"><h2>Experience Centre</h2></div>
+			
+                <div class="">
+                    <div class="flt"><h2>Experience Centre</h2><hr/></div>
                     <div class="flt">
                             <div class="row">
                                 <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                   <h3 class="solutionh3"><?php echo e($category->getName()); ?></h3>
                                     <div class="col-md-12">
+                                        <?php $counter=1; ?>;
                                         <?php $__empty_1 = true; $__currentLoopData = $category->getExpCategory(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $expVideo): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                            <?php if($loop->iteration>4): ?>
+                                            <?php if($expVideo->getIsActive()==1): ?>
+                                            <?php if($counter>4): ?>
                                                 <?php break; ?>
                                             <?php endif; ?>
                                             <div class="col-md-3 col-sm-3 col-xs-12">
@@ -19,6 +22,8 @@
 												
 											<div class="vidTittle"><?php echo e($expVideo->getTitle()); ?></div>
                                             </div>
+                                                <?php $counter++; ?>
+                                            <?php endif; ?>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                             No Video Found In This Category
                                         <?php endif; ?>

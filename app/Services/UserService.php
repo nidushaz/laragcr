@@ -15,5 +15,5 @@ interface UserService
     public function getAllUsers();
     public function getUserById($id);
     public function save($data);
-    public function updateUser($data);
+    public function updateUser($data,$id);
 }

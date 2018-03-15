@@ -21,7 +21,9 @@
                             <h4 class="m-t-0 header-title"><b>Roles List</b></h4>
                         </div>
                         <div class="col-sm-2">
+                            @if(in_array('roles.create', $isAuthorize))
                             <a class="btn btn-default waves-effect waves-light" href="{{route('roles.create')}}"><i class="fa fa-plus"></i> Role & Permission</a>
+                            @endif
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -47,7 +49,7 @@
                                     {{$role->getRole()}}
                                 </td>
                                 <td class="editTd">
-                                    {!! \Illuminate\Support\Str::words($role->getPermissions(), 20,'....')  !!}
+
                                 </td>
                                 <td data-active="" class="editTd">
                                     <span class="label label-table label-{{$label = $role->getIsActive()?"success":"danger"}}">
@@ -55,9 +57,11 @@
                                      </span>
                                 </td>
                                 <td>
-                                    <a href="{{route('roles.edit',['$roles' => $role->getId()])}}" class="btn btn-icon waves-effect waves-light btn-white">
+                                    @if(in_array('roles.edit', $isAuthorize))
+                                    <a href="{{route('roles.edit',['roles' => $role->getId()])}}" class="btn btn-icon waves-effect waves-light btn-white">
                                         <i class="fa fa-edit"></i>
                                     </a>
+                                        @endif
                                 </td>
                             </tr>
                         @empty

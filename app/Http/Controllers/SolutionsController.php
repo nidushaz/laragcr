@@ -38,6 +38,15 @@ class SolutionsController extends Controller
           $abouts = $this->abouts;
           return view('front-end.solutions',compact('banner','content','solutions','abouts'));
     }
+
+    public function catalog()
+    {
+        $content = $this->content;
+        $banner = $this->banner;
+        $solutions = $this->solutions;
+        $abouts = $this->abouts;
+        return view('front-end.catalog',compact('banner','content','solutions','abouts'));
+    }
     public function show($id){
 
         $content = $this->content;

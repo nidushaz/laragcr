@@ -19,6 +19,7 @@
                 <div class="card-box">
                     <div class="row">
                         <div class="col-sm-2">
+
                             <a class="btn btn-default waves-effect waves-light" href="<?php echo e(route('ads.index')); ?>"><i class="fa fa-reply"></i> Ads List</a>
                         </div>
                     </div>

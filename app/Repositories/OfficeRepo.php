@@ -18,6 +18,29 @@ class OfficeRepo
     }
 
     public function getAllOffices(){
+        return $this->em->getRepository(Office::class)->findBy(['deleted'=>0]);
+    }
+
+    public function getOfficeById($id)
+    {
+        return $this->em->getRepository(Office::class)->find($id);
+    }
+
+    public function saveOffice($data)
+    {
+        $this->em->persist($data);
+        $this->em->flush();
+        return true;
+    }
+
+    public function updateOffice($data)
+    {
+        $this->em->flush();
+        return true;
+    }
+
+    public function getActiveOffice()
+    {
         return $this->em->getRepository(Office::class)->findBy(['isActive'=>1]);
     }
 }

@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\CountryService;
+use App\Services\CheckPermissionService;
 class CountryController extends Controller
 {
-    private $countryService;
-    public function __construct(CountryService $countryService)
+    private $countryService,$checkPermissionService;
+    public function __construct(CountryService $countryService,CheckPermissionService $checkPermissionService)
     {
       $this->countryService = $countryService;
+      $this->checkPermissionService = $checkPermissionService;
     }
 
     /**
@@ -22,7 +24,8 @@ class CountryController extends Controller
     {
 
         $countries = $this->countryService->getAllActiveCountry();
-        return view('admin.country',compact('countries'));
+        $isAuthorize = $this->checkPermissionService->checkPermission();
+        return view('admin.country',compact('countries','isAuthorize'));
     }
 
     /**

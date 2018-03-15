@@ -12,4 +12,8 @@ namespace App\Services;
 interface ContactService
 {
     public function contactSaveAndSend($data);
+    public function getAllContact();
+    public function getContactById($id);
+    public function getAllSupport();
+    public function getSupportById($id);
 }

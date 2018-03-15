@@ -152,7 +152,7 @@ class Office
     }
 
     /**
-     * @param mixed $address
+     * @param mixed $address1
      */
     public function setAddress($address)
     {

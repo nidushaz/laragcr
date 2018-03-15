@@ -14,11 +14,32 @@
 <script src="{{asset('js/front-js/vue.js')}}"></script>
 <script src="{{asset('js/front-js/vue-carousel-3d.min.js')}}"></script>
 <script src="{{asset('js/front-js/slick.js')}}"></script>
+<script src="{{asset('js/front-js/bxslider.min.js')}}"></script>
+<script src="{{asset('js/front-js/jquery.simplyscroll.js')}}"></script>
+<script type="text/javascript">
 
+$(document).ready(function(){
+ 
+});
+
+
+//$(window).bind("load",function() {
+   // $(".Navshow").click(function(){
+       // e.preventDefault();
+        //setTimeout(function(){
+            //sessionStorage.setItem('dropnav',1);
+      //  },10)
+	//});
+  //});
+</script>
 
 <script type="text/javascript">
 
     $(window).load(function() {
+       // if(sessionStorage.getItem('dropnav')==1){
+            $(".DropNav").show();
+           // sessionStorage.setItem('dropnav',0);
+        //}
         $("#flexiselDemo1").flexisel();
         $("#flexiselDemo2").flexisel({
             enableResponsiveBreakpoints: true,
@@ -70,6 +91,8 @@
 
         });
 		
+	
+		
 	$("#flexiselDemo7").flexisel({
             visibleItems: 5,
             animationSpeed: 1000,
@@ -107,23 +130,27 @@
 
 <script>
 $( document ).ready(function() {
+	 // $(".verticalCarousel").verticalCarousel({
+               // currentItem: 1,
+                // showItems: 2,
+				// autoplay:true,
+     // });
 	
-	
-	$('.toggler').click(function(e){
-      $('.og-expander').slideToggle();
-});
+	// $('.toggler').click(function(e){
+      // $('.og-expander').slideToggle();
+	// });
 
-$('.closebtn').click(function(e){
-      $('.og-expander').slideToggle();
-});
+// $('.closebtn').click(function(e){
+      // $('.og-expander').slideToggle();
+// });
 
-$(".toggler").click(function() {
-    $('html, body').animate({
-        scrollTop: $(".flt").offset().top
-    }, 1000);
-});
+// $(".toggler").click(function() {
+    // $('html, body').animate({
+        // scrollTop: $(".flt").offset().top
+    // }, 1000);
+// });
 			
-    $(".alertifyshaz").delay(3000).fadeOut(1000);
+$(".alertifyshaz").delay(3000).fadeOut(1000);
     	 new Vue({
   el: '#example',
   data: {
@@ -163,9 +190,7 @@ $(".toggler").click(function() {
 
 <script type="text/javascript">
     $(document).on('ready', function() {
-		
-		
-       $(".center").slick({
+	$(".center").slick({
         dots: true,
 		autoPlay: true,
         infinite: true,
@@ -173,16 +198,85 @@ $(".toggler").click(function() {
         slidesToShow: 5,
         slidesToScroll: 3
       });
+	  
       $(".variable").slick({
         dots: true,
         infinite: true,
 		autoPlay: true,
         variableWidth: true
       });
+	  
       $(".lazy").slick({
         lazyLoad: 'ondemand', // ondemand progressive anticipated
         infinite: true,
 		autoPlay: true,
       });
-    });
+	  
+	  //DropMenu
+	  
+$('#main-nav ul li a').click(function(){
+	$("#main-nav ul li a").removeClass("active-4");
+    $(this).addClass("active-4");
+});
+	  
+
+/////////////////////////////
+
+	$('.left-scroll').slick({
+	  vertical: true,
+	  autoplay: true,
+	  autoplaySpeed: 500,
+	  speed: 1500
+	});
+
+
+//Solution
+var slider = $('.bxslider').bxSlider({
+    minSlides: 1,
+    maxSlides: 8,
+    slideWidth: 197,
+    slideMargin: 0,
+    ticker: true,
+    speed: 15000,
+    auto: true,
+    autoHover: true,
+   stopAuto: false,
+//    autoStart:true
+
+});
+
+
+
+	
+});
+</script>
+
+
+<script type="text/javascript">
+		// $(function(){
+			// $('#vertical-ticker').totemticker({
+				// row_height	:	'10px',
+				// next		:	'#ticker-next',
+				// previous	:	'#ticker-previous',
+				// stop		:	'#stop',
+				// start		:	'#start',
+				// mousestop	:	true,
+			// });
+		// });
+</script>
+
+
+<script type="text/javascript">
+(function($) {
+	$(function() {
+		$("#scroller").simplyScroll({
+			customClass: 'vert',
+			orientation: 'vertical',
+			auto: true,
+			manualMode: 'loop',
+			frameRate: 10,
+			speed: 5			
+		});
+	});
+})(jQuery);
 </script>

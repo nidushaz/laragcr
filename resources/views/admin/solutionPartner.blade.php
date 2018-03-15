@@ -21,7 +21,9 @@
                             <h4 class="m-t-0 header-title"><b>Partners List</b></h4>
                         </div>
                         <div class="col-sm-2">
+                            @if(in_array('partners.create', $isAuthorize))
                             <a class="btn btn-default waves-effect waves-light" href="{{route('partners.create')}}"><i class="fa fa-plus"></i> Add Partner</a>
+                            @endif
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -59,9 +61,11 @@
                                      </span>
                                 </td>
                                 <td>
+                                    @if(in_array('partners.edit', $isAuthorize))
                                     <a href="{{route('partners.edit',['partners' => $partner->getId()])}}" class="btn btn-icon waves-effect waves-light btn-white">
                                         <i class="fa fa-edit"></i>
                                     </a>
+                                        @endif
                                     &nbsp;&nbsp;&nbsp;
                                     <!-- <button class="btn btn-icon waves-effect waves-light btn-white	">		<i class="fa fa-remove"></i>
                                     </button> -->

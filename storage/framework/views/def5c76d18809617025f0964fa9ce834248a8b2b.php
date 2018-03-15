@@ -20,7 +20,9 @@
                             <h4 class="m-t-0 header-title"><b>Roles List</b></h4>
                         </div>
                         <div class="col-sm-2">
+                            <?php if(in_array('roles.create', $isAuthorize)): ?>
                             <a class="btn btn-default waves-effect waves-light" href="<?php echo e(route('roles.create')); ?>"><i class="fa fa-plus"></i> Role & Permission</a>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -48,7 +50,6 @@
 
                                 </td>
                                 <td class="editTd">
-                                    <?php echo \Illuminate\Support\Str::words($role->getPermissions(), 20,'....'); ?>
 
                                 </td>
                                 <td data-active="" class="editTd">
@@ -58,9 +59,11 @@
                                      </span>
                                 </td>
                                 <td>
-                                    <a href="<?php echo e(route('roles.edit',['$roles' => $role->getId()])); ?>" class="btn btn-icon waves-effect waves-light btn-white">
+                                    <?php if(in_array('roles.edit', $isAuthorize)): ?>
+                                    <a href="<?php echo e(route('roles.edit',['roles' => $role->getId()])); ?>" class="btn btn-icon waves-effect waves-light btn-white">
                                         <i class="fa fa-edit"></i>
                                     </a>
+                                        <?php endif; ?>
                                 </td>
                             </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>

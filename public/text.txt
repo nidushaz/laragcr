@@ -1,0 +1,333 @@
+<!doctype html>
+<html ng-app="GCR-Cloud">
+    <head>
+        <base href="/" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="fragment" content="!" />
+        <meta name="description" property="og:description" content="GCR is Global Channel Resources, bridging the gaps between solution providers and global channel partners. We collaborate with worldwide cloud-based/networking solution providers to enable channel partners providing IoT solutions and cloud services. Through our channel partners, we offer an IoT combination of smart connected hardware and software to serve end-customers. We are ready to operate the cloud service subscription model on our Channel Partner Service Portal (CPSP), offering automatic cloud service delivery.">
+        <meta property="og:title" content="GCR-Cloud"/>
+        <meta property="og:image" content="http://www.gcrcloud.com/css/img/GCRcloud.png"/> 
+        <title>GCR-Cloud</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link href="/css/site.min.css" rel="stylesheet">
+        <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="/css/common.css" rel="stylesheet">
+        <link href="/css/header.css" rel="stylesheet">
+        <link href="/css/index.css" rel="stylesheet">
+        <link href="/css/css3-animations.css" rel="stylesheet">
+        <link href="/css/animate.min.css" rel="stylesheet">
+        <link href="/css/top.css" rel="stylesheet">
+        <link href="/css/carousel.css" rel="stylesheet">  
+        <link href="/css/ecatalog/style.css" rel="stylesheet">   
+<!-------GA js------->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75059394-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-------GA js------->
+
+    </head>
+    <body>
+    <div class="hidden-xs"><a href="#" class="scrollup"><button type="button" class="btn btn-default btn-circle circle" onfocus="this.blur()"><i class="fa fa-arrow-up"></i></button></a></div>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P924K7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P924K7');</script>
+<!-- End Google Tag Manager -->
+        <header ng-include="'/views/header/portal.html'" ng-if="en_url"></header>
+        <header ng-include="'/views/header/portal_fa.html'" ng-if="fa_url"></header>
+        <div ng-view></div>
+        <footer ng-include="'/views/footer/portal.html'" ng-if="en_url"></footer>
+        <footer ng-include="'/views/footer/portal_fa.html'" ng-if="fa_url"></footer>
+        <script src="/build/js/components.js"></script>
+<script src="/build/js/app.js"></script>
+<script type="text/javascript">
+    angular
+        .module('GCR-Cloud')
+        .config(
+            function($routeProvider) {
+                $routeProvider.when('//', {
+        templateUrl: 'views/portal/main.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/product/:product_id', {
+        templateUrl: 'views/portal/ecatalog.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/scenarios', {
+        templateUrl: 'views/portal/solutions.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/asianproducts', {
+        templateUrl: 'views/portal/solutions.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/channel-partner', {
+        templateUrl: 'views/portal/channel-partner.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/vendor', {
+        templateUrl: 'views/portal/vendor.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/news/list', {
+        templateUrl: 'views/portal/news_list.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/news/:news_id?', {
+        templateUrl: 'views/portal/news.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/contact', {
+        templateUrl: 'views/portal/contact.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/about', {
+        templateUrl: 'views/portal/about.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/shopping-mall', {
+        templateUrl: 'views/portal/shopping-mall.php',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/shopping-view', {
+        templateUrl: 'views/portal/shopping-view.php',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/hotel', {
+        templateUrl: 'views/portal/hotel.php',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/hotel-view', {
+        templateUrl: 'views/portal/hotel-view.php',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/shopping-hall', {
+        templateUrl: 'views/portal/shopping-hall.php',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/shopping-supermarket', {
+        templateUrl: 'views/portal/shopping-supermarket.php',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/shopping-fashion', {
+        templateUrl: 'views/portal/shopping-fashion.php',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/shopping-restaurant', {
+        templateUrl: 'views/portal/shopping-restaurant.php',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/hotel-lobby', {
+        templateUrl: 'views/portal/hotel-lobby.php',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/hotel-restaurant', {
+        templateUrl: 'views/portal/hotel-restaurant.php',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/hotel-conference', {
+        templateUrl: 'views/portal/hotel-conference.php',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/solutions-2', {
+        templateUrl: 'views/portal/solutions-2.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/solutions-2-1', {
+        templateUrl: 'views/portal/solutions-2-1.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/solutions-2-2', {
+        templateUrl: 'views/portal/solutions-2-2.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/solutions-2-3', {
+        templateUrl: 'views/portal/solutions-2-3.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/solutions-2-4', {
+        templateUrl: 'views/portal/solutions-2-4.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/solutions-2-5', {
+        templateUrl: 'views/portal/solutions-2-5.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/solutions-2-6', {
+        templateUrl: 'views/portal/solutions-2-6.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/solutions-2-7', {
+        templateUrl: 'views/portal/solutions-2-7.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/solutions-2-8', {
+        templateUrl: 'views/portal/solutions-2-8.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/solutions-2-1-1', {
+        templateUrl: 'views/portal/solutions-2-1-1.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/solution-provider', {
+        templateUrl: 'views/portal/solution-provider.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/fa', {
+        templateUrl: 'views/portal_fa/main.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/contact_fa', {
+        templateUrl: 'views/portal_fa/contact.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/slider', {
+        templateUrl: 'views/portal/slider.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/solutions', {
+        templateUrl: 'views/portal/ecatalog.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/ecatalog-1', {
+        templateUrl: 'views/portal/ecatalog-1.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+    $routeProvider.when('/ecatalog-2', {
+        templateUrl: 'views/portal/ecatalog-2.html',
+        controller:"LangController",
+        resolve: {
+                                }
+    });
+
+            }
+        );
+
+    app.controller('LangController', function($scope, $rootScope, $location, $http) {
+        var result;
+        result = $http.get('/getting/lang')
+        .success(function(data, status) {
+            switch(data) {
+                case 'English':
+                    $rootScope.en_url = true;
+                    $rootScope.fa_url = false;
+                    break;
+                case 'فارسی‎':
+                    $rootScope.en_url = false;
+                    $rootScope.fa_url = true;
+                    break;
+            }
+        })
+        .error(function() {
+        });
+    });
+</script>        <script src="/js/header.js"></script>
+        <script src="/js/css3-animate-it.js"></script>
+        <script src="/js/contact.js"></script>
+        <script src="/js/vendor.js"></script>
+        <script src="/js/scenarios.js"></script>
+        <script src="/js/news.js"></script>
+        <script src="/js/channel-partner.js"></script>
+        <script src="/js/portal.js"></script>
+        <script src="/js/top.js"></script>
+        <script src="/js/about.js"></script>
+        <script src="/js/jquery-3.1.1.min.js"></script>
+        <script src="/js/jquery.rwdImageMaps.js"></script>
+        <script src="/js/ng-text-truncate.js"></script>
+        <script src="/js/ng-infinite-scroll.min.js"></script>
+
+        <script>
+    $(document).ready(function(e) {
+        $('img[usemap]').rwdImageMaps();
+    });
+</script>
+
+    </body>
+</html>

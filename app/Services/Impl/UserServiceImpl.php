@@ -16,6 +16,7 @@ use App\Services\RoleService;
 use App\Repositories\UserRepo;
 use App\Services\Impl\UploadService;
 
+
 class UserServiceImpl implements UserService
 {
     protected $uploadService, $userRepo, $roleRepo;
@@ -33,19 +34,37 @@ class UserServiceImpl implements UserService
 
     public function getAllUsers()
     {
-        // TODO: Implement getAllUsers() method.
+        return $this->userRepo->getAllUsers();
     }
 
     public function getUserById($id)
     {
-        // TODO: Implement getUserById() method.
+        return $this->userRepo->getUserById($id);
     }
 
 
 
-    public function updateUser($data)
+    public function updateUser($data,$id)
     {
-        // TODO: Implement updateUser() method.
+        $user = $this->userRepo->getUserById($id);
+        $user->setFirstName($data->get('firstName'));
+        $user->setLastName($data->get('lastName'));
+        $path = $this->uploadService->UploadFile($data,'profilePic','ProfilePic/');
+        $path?$user->setProfilePic($path):'';
+        $user->setEmail($data->get('email'));
+        //$user->setPassword(bcrypt($data->get('email')));
+        $user->setContactNumber($data->get('contactNumber'));
+        $user->setIsActive($data->get('active'));
+        $user->setIsAdmin($data->get('isAdmin'));
+        $user->setDeleted(0);
+        $this->userRepo->removeExistingUserRole($id);
+        $userRole = new UserRole();
+        $userRole->setDeleted(0);
+        $userRole->setCreatedAt(new \DateTime(now()));
+        $userRole->setUpdatedAt(new \DateTime(now()));
+        $userRole->setRoleId($this->roleRepo->getRoleById($data->get('role')));
+        $user->addUserRole($userRole);
+        return $this->userRepo->saveUser($user);
     }
 
 

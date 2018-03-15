@@ -8,18 +8,20 @@ use App\Services\VideosService;
 use App\Services\CategoryService;
 use App\Services\IndustryService;
 use App\Services\SolutionTypeService;
+use App\Services\CheckPermissionService;
 class VideosController extends Controller
 {
-    protected $videoService;
+    protected $videoService,$checkPermissionService;
     protected $catService;
     protected $indService;
     protected $solService;
-    public function __construct(VideosService $videosService,CategoryService $categoryService,SolutionTypeService $sol,IndustryService $ind)
+    public function __construct(VideosService $videosService,CategoryService $categoryService,SolutionTypeService $sol,IndustryService $ind,CheckPermissionService $checkPermissionService)
     {
         $this->videoService = $videosService;
         $this->catService = $categoryService;
         $this->indService = $ind;
         $this->solService = $sol;
+        $this->checkPermissionService = $checkPermissionService;
 
     }
 
@@ -31,7 +33,8 @@ class VideosController extends Controller
     public function index()
     {
         $videos = $this->videoService->getAllVideos();
-        return view('admin.experienceCentre',compact('videos'));
+        $isAuthorize = $this->checkPermissionService->checkPermission();
+        return view('admin.experienceCentre',compact('videos','isAuthorize'));
     }
 
     /**

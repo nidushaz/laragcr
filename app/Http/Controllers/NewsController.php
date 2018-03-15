@@ -59,7 +59,30 @@ class NewsController extends Controller
         $abouts = $this->abouts;
         $news = $this->news;
 		
-		$sortedData = array();
+		$sortedData=$this->getDateWiseNews($news);
+		
+        return view('front-end.news',compact('banner','content','solutions','abouts','news','sortedData'));
+    }
+
+    public function list(Request $request,$id)
+    {
+        $content = $this->content;
+        $banner = $this->banner;
+        $solutions = $this->solutions;
+        $abouts = $this->abouts;
+        $news = $this->news;
+        $new = $this->newsService->getActiveNews($id);
+
+        $sortedData=$this->getDateWiseNews($news);
+
+        return view('front-end.newslist',compact('banner','content','solutions','abouts','news','new','sortedData'));
+
+
+    }
+
+    public function getDateWiseNews($news)
+    {
+        $sortedData = array();
         foreach($news as $element)
         {
             $timestamp = strtotime($element->getUpdatedAt()->format('Y-m-d H:i:s'));
@@ -73,23 +96,8 @@ class NewsController extends Controller
             }
 
         }
-		
-		//print_r($sortedData);exit;
-		
-        return view('front-end.news',compact('banner','content','solutions','abouts','news','sortedData'));
-    }
 
-    public function list(Request $request,$id)
-    {
-        $content = $this->content;
-        $banner = $this->banner;
-        $solutions = $this->solutions;
-        $abouts = $this->abouts;
-        $news = $this->news;
-        $new = $this->newsService->getActiveNews($id);
-        return view('front-end.newslist',compact('banner','content','solutions','abouts','news','new'));
-
-
+        return $sortedData;
     }
 
 }

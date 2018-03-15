@@ -15,8 +15,11 @@
                 </ul>
             </li>
             <li class="has_sub">
-                <a href="#" class="waves-effect"><i class="ti-settings"></i> <span> General Setting </span> </a>
+                <a href="#" class="waves-effect"><i class="ti-settings"></i> <span> General </span> </a>
                 <ul class="list-unstyled">
+                    <li><a href="{{route('contact.index')}}">Contact Emails</a></li>
+                    <li><a href="{{route('support.index')}}">Support Emails</a></li>
+                    <li><a href="{{route('office.index')}}">Office</a></li>
                     <li><a href="{{url('admin/country')}}">Country</a></li>
                     <li><a href="{{url('admin/industry')}}">Industry</a></li>
                     <li><a href="{{url('admin/product-type')}}">Product Type</a></li>
@@ -40,6 +43,7 @@
             <li><a href="{{url('admin/ads')}}"><i class="fa  fa-picture-o"></i>Ads</a></li>
             <li><a href="{{url('admin/testimonials')}}"><i class="fa  fa-quote-left"></i>Testimonials</a></li>
             <li><a href="{{route('roles.index')}}"><i class="fa fa-user-secret"></i>Roles & Permission</a></li>
+            <li><a href="{{route('users.index')}}"><i class="fa fa-user-plus"></i>Users</a></li>
 
 
         </ul>

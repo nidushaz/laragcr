@@ -27,7 +27,7 @@ class UploadService
             foreach ($data->file($fileName) as $key => $file) {
                 $origName = $file->getClientOriginalName();
                 $file->storeAs('public/'.$dir,time().$origName);
-                $url[]= asset('storage/'.$dir.'/'.time().$origName);
+                $url[]= 'storage/'.$dir.'/'.time().$origName;
             }
             return $url;
         }

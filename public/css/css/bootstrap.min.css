@@ -66,7 +66,7 @@ abbr[title] {
 
 b,
 strong {
-    font-weight: 700
+    font-weight: 700; color: #605d5d;
 }
 
 dfn {
@@ -1174,7 +1174,7 @@ a:focus {
 }
 
 a:focus {
-    outline: thin dotted;
+    outline: none;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px
 }
@@ -3839,7 +3839,7 @@ tbody.collapse.in {
     display: none;
     float: left;
     min-width: 160px;
-    padding: 5px 0;
+    padding: 0px;
     margin: 2px 0 0;
     font-size: 14px;
     text-align: left;
@@ -3868,12 +3868,12 @@ tbody.collapse.in {
 
 .dropdown-menu>li>a {
     display: block;
-    padding: 3px 20px;
+    padding: 10px 20px;
     clear: both;
     font-weight: 400;
     line-height: 1.42857143;
     color: #333;
-    white-space: nowrap
+    white-space: nowrap; text-transform: capitalize;
 }
 
 .dropdown-menu>li>a:hover,
@@ -4366,13 +4366,13 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 
 .nav>li {
     position: relative;
-    display: block
+    display: block; font-weight: 500; font-size: 13px; text-transform: uppercase; font-weight: 600;
 }
 
 .nav>li>a {
     position: relative;
     display: block;
-    padding: 10px 15px
+    padding: 10px 12px
 }
 
 .nav>li>a:hover,
@@ -4782,7 +4782,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 .navbar-nav>li>a {
     padding-top: 10px;
     padding-bottom: 10px;
-    line-height: 20px
+    line-height: 12px
 }
 
 @media (max-width:767px) {
@@ -4818,8 +4818,8 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
         float: left
     }
     .navbar-nav>li>a {
-        padding-top: 15px;
-        padding-bottom: 15px
+        padding-top: 5px;
+        padding-bottom: 5px
     }
 }
 
@@ -4982,7 +4982,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 }
 
 .navbar-default .navbar-nav>li>a {
-    color: #777
+    color: #009bdf;
 }
 
 .navbar-default .navbar-nav>li>a:hover,

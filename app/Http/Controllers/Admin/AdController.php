@@ -5,12 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Services\AdService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Services\CheckPermissionService;
 class AdController extends Controller
 {
-    private $adService;
-    public function __construct(AdService $adService){
+    private $adService,$checkPermissionService;
+    public function __construct(AdService $adService,CheckPermissionService $checkPermissionService){
         $this->adService = $adService;
+        $this->checkPermissionService = $checkPermissionService;
     }
 
     /**
@@ -20,7 +21,8 @@ class AdController extends Controller
      */
     public function index(){
         $ads = $this->adService->getAllAds();
-        return view('admin.ads',compact('ads'));
+        $isAuthorize = $this->checkPermissionService->checkPermission();
+        return view('admin.ads',compact('ads','isAuthorize'));
     }
 
     /**

@@ -2,9 +2,11 @@
 @section('banner-image',asset($banner->getImage()))
 @section('content')
     <div class="container">
+	
+	<div class="row padding-bottom-80">
         <div class="col-md-9 col-sm-9 col-xs-12 mobPdnone">
             @if(@isset($new))
-                <div class="col-md-12 col-xs-12 newsInner" style="margin: 25px 0 25px 0;">
+                <div class="col-md-12 col-xs-12 newsInner">
                     <h2>{{$new->getNewsHeading()}}</h2>
                     <p>GCR News [ {{$new->getUpdatedAt()->format('l, d F Y')}} ]</p>
                     <img src="{{asset($new->getThumbnail())}}" alt="{{$new->getNewsHeading()}}" class="img-responsive">
@@ -19,15 +21,22 @@
             @endif
         </div>
 
-        <div class="col-md-3 col-sm-3 col-xs-12 newsRight">
+        <div class="col-md-3 col-sm-3 col-xs-12 newsRight side-bar">
+			<div class="heading-side-bar margin-bottom-10">
+                <h4>Archive</h4>
+              </div>
+            <div class="clearfix"></div>
+            @foreach($sortedData as $key=>$value)
+                <h4 style="color:#848484;font-style:italic;">{{$key}}</h4>
+                <ul class="cate">
+                    @foreach($value as $data)
+                        <li style="font-style:italic"><strong>{{$data['updateAt']}}</strong> - <a href="{{route('news.list',['id'=>$data['id']])}}">{{$data['heading']}}</a></li>
+                    @endforeach
+                </ul>
+            @endforeach
+
 		
-            <h3 class="g-title">Archive</h3>
-            <h4 style="color:#848484;font-style:italic;">2018</h4>
-            @forelse($news as $new)
-                <p style="font-style:italic"><strong>{{$new->getUpdatedAt()->format('d F Y')}}</strong> - {{$new->getNewsHeading()}}</p>
-            @empty
-                <h2>No Data</h2>
-            @endforelse
-        </div>
+	 </div>
+	</div>
     </div>
 @endsection

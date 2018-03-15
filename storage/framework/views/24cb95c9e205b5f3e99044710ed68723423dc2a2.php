@@ -31,6 +31,9 @@
                                     <input class="form-control" required="required" placeholder="First Name" type="text" name="firstName"  value="<?php if(isset($user)): ?><?php echo e($user->getFirstName()); ?> <?php endif; ?>">
                                     <?php echo e(csrf_field()); ?>
 
+                                    <?php if(isset($user)): ?>
+                                        <input type="hidden" name="_method" value="PUT">
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -42,12 +45,14 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label class="control-label">Profile Pic</label>
-                                    <input class="filestyle" type="file" name="profilePic">
+                                    <input class="filestyle"  id="banner-img" type="file" name="profilePic">
                                 </div>
                             </div>
                             <div class="col-md-2">
-                                <div class="form-group">
-                                   <img src="">
+                                <div class="form-group" id="img-preview">
+                                    <?php if(isset($user)): ?>
+                                   <img class="img-thumbnail thumb-lg" src="<?php echo e(asset($user->getProfilePic())); ?>">
+                                        <?php endif; ?>
                                 </div>
                             </div>
                         </div>
@@ -67,7 +72,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Password</label>
-                                    <input class="form-control" required="required" placeholder="Password" type="password" name="password">
+                                    <input class="form-control" required="required" placeholder="Password" type="password" name="password" value="<?php if(isset($user)): ?><?php echo e($user->getPassword()); ?> <?php endif; ?>" <?php if(isset($user)): ?> readonly <?php endif; ?>>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +83,15 @@
                                     <select class="form-control select2" name="role">
                                         <option value="">Choose Role</option>
                                         <?php $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $role): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <option value="<?php echo e($role->getId()); ?>"><?php echo e($role->getRole()); ?></option>
+                                            <option value="<?php echo e($role->getId()); ?>"
+                                                    <?php if(isset($user)): ?>
+                                                        <?php $__currentLoopData = $user->getAdminRole(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $roleSelected): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <?php if($role->getId()==$roleSelected->getRoleId()->getId()): ?> selected="selected" <?php else: ?>  <?php endif; ?>
+                                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                    <?php endif; ?>
+                                            ><?php echo e($role->getRole()); ?>
+
+                                            </option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
                                 </div>

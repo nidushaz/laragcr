@@ -6,14 +6,16 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\UserService;
 use App\Services\RoleService;
+use App\Services\CheckPermissionService;
 class UserController extends Controller
 {
-    protected $userService,$roleService;
-//    public function __construct(UserService $userService,RoleService $roleService)
-//    {
-//        $this->userService = $userService;
-//        $this->roleService = $roleService;
-//    }
+    protected $userService,$roleService,$checkPermissionService;
+    public function __construct(UserService $userService,RoleService $roleService,CheckPermissionService $checkPermissionService)
+    {
+        $this->userService = $userService;
+        $this->roleService = $roleService;
+        $this->checkPermissionService = $checkPermissionService;
+    }
 
     /**
      * Display a listing of the resource.
@@ -22,7 +24,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        return 1;
+        //$permission = Request::instance()->query('permission');
+       // echo $permission;exit;
+        $isAuthorize = $this->checkPermissionService->checkPermission();
+        $users = $this->userService->getAllUsers();
+        return view('admin.users',compact('users','isAuthorize'));
     }
 
     /**
@@ -32,7 +38,6 @@ class UserController extends Controller
      */
     public function create(RoleService $roleService)
     {
-
         $roles = $roleService->getAllActiveRoles();
         return view('admin.user',compact('roles'));
     }
@@ -83,7 +88,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $roles = $this->roleService->getAllActiveRoles();
+        $user = $this->userService->getUserById($id);
+        return view('admin.user',compact('roles','user'));
     }
 
     /**
@@ -95,7 +102,22 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            "firstName" => "required",
+            "lastName" => "required",
+            "active" => "required",
+            "contactNumber" => "required",
+            "email" => "required",
+            "password" => "required",
+            "role" => "required",
+        ]);
+
+        $result = $this->userService->updateUser($request,$id);
+        if($result){
+            return redirect()->route('users.index')->with('success-msg', ' User updated successfully.');
+        }else{
+            return redirect()->route('users.index')->with('error-msg', 'Something went wrong.');
+        }
     }
 
     /**

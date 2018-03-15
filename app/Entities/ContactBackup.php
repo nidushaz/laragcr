@@ -42,7 +42,7 @@ class ContactBackup
     private $email ;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string",nullable=true)
      */
     private $industry ;
 
@@ -53,7 +53,7 @@ class ContactBackup
     private $country ;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string",nullable=true)
      */
     private $topic ;
 

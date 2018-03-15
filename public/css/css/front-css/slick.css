@@ -18,13 +18,11 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-.slick-list
-{
+.slick-list{
     position: relative;
-
     display: block;
     overflow: hidden;
-
+	height:138px !important;
     margin: 0;
     padding: 0;
 }
@@ -117,3 +115,5 @@
 .slick-arrow.slick-hidden {
     display: none;
 }
+
+.left-scroll{ height:150px; margin-top: 5px !important;}

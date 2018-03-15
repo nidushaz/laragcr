@@ -12,17 +12,18 @@ use App\Services\Impl\UploadService;
 use App\Entities\NewsAttachment;
 
 use Illuminate\Support\Facades\Storage;
-
+use App\Services\CheckPermissionService;
 class NewsController extends Controller
 {
-    protected $countryService;
+    protected $countryService,$checkPermissionService;
     protected $newsService;
     protected $mul;
-    public function __construct(CountryService $countryService,NewsService $newsService,UploadService $mul)
+    public function __construct(CountryService $countryService,NewsService $newsService,UploadService $mul,CheckPermissionService $checkPermissionService)
     {
         $this->countryService=$countryService;
         $this->newsService=$newsService;
         $this->mul=$mul;
+        $this->checkPermissionService = $checkPermissionService;
     }
 
     /**
@@ -35,7 +36,8 @@ class NewsController extends Controller
 //        return view('admin.newsmulti');exit;
 
         $news=$this->newsService->getAllNews();
-        return view('admin.news',compact('news'));
+        $isAuthorize = $this->checkPermissionService->checkPermission();
+        return view('admin.news',compact('news','isAuthorize'));
     }
 
     /**

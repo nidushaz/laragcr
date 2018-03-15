@@ -13,6 +13,7 @@
         </div>
 
         <div class="row">
+            <?php if(in_array('category.create', $isAuthorize)): ?>
             <div class="col-sm-12">
                 <div class="card-box">
                     <h4 class="m-t-0 header-title"><b>Add Category</b></h4>
@@ -32,6 +33,7 @@
                     </form>
                 </div>
             </div>
+                <?php endif; ?>
         </div>
 
 
@@ -68,9 +70,12 @@
                             </span>
                                 </td>
                                 <td>
+
+                                    <?php if(in_array('category.edit', $isAuthorize)): ?>
                                     <a href="#dataEdit" class="btn btn-icon waves-effect waves-light btn-white dataEdit" data-animation="fadein" data-plugin="custommodal" data-overlaySpeed="200" data-overlayColor="#36404a">
                                         <i class="fa fa-edit"></i>
                                     </a>
+                                    <?php endif; ?>
                                     &nbsp;&nbsp;&nbsp;
                                     <!-- <button class="btn btn-icon waves-effect waves-light btn-white	">		<i class="fa fa-remove"></i>
                                     </button> -->

@@ -12,18 +12,20 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\ClientTestimonialService;
-
+use App\Services\CheckPermissionService;
 class ClientTestimonialController extends Controller
 {
-    private $clientTestimonialService;
+    private $clientTestimonialService,$checkPermissionService;
 
-    public function __construct(ClientTestimonialService $clientTestimonialService){
+    public function __construct(ClientTestimonialService $clientTestimonialService,CheckPermissionService $checkPermissionService){
         $this->clientTestimonialService = $clientTestimonialService;
+        $this->checkPermissionService = $checkPermissionService;
     }
 
     public function index(){
         $testimonials = $this->clientTestimonialService->getAllTestimonials();
-        return view('admin.testimonials',compact('testimonials'));
+        $isAuthorize = $this->checkPermissionService->checkPermission();
+        return view('admin.testimonials',compact('testimonials','isAuthorize'));
     }
 
     public function create(){

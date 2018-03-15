@@ -5,11 +5,13 @@ namespace App\Providers;
 
 use App\Services\AdService;
 use App\Services\CategoryService;
+use App\Services\CheckPermissionService;
 use App\Services\ClientTestimonialService;
 use App\Services\ContactService;
 use App\Services\CountryService;
 use App\Services\Impl\AdServiceImpl;
 use App\Services\Impl\CategoryServiceImpl;
+use App\Services\Impl\CheckPermissionServiceImpl;
 use App\Services\Impl\ClientTestimonialServieImpl;
 use App\Services\Impl\ContactServiceImpl;
 use App\Services\Impl\CountryServiceImpl;
@@ -89,5 +91,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SolutionProviderService::class, SolutionProviderServiceImpl::class);
         $this->app->bind(RoleService::class,RoleServiceImpl::class);
         $this->app->bind(UserService::class,UserServiceImpl::class);
+        $this->app->bind(CheckPermissionService::class,CheckPermissionServiceImpl::class);
     }
 }

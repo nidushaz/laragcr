@@ -6,13 +6,15 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\SolutionProviderService;
 use App\Services\CountryService;
+use App\Services\CheckPermissionService;
 class SolutionProviderController extends Controller
 {
-    protected  $solutionProviderService,$countryService;
-    public function __construct(SolutionProviderService $solutionProviderService,CountryService $countryService)
+    protected  $solutionProviderService,$countryService,$checkPermissionService;
+    public function __construct(SolutionProviderService $solutionProviderService,CountryService $countryService,CheckPermissionService $checkPermissionService)
     {
         $this->solutionProviderService = $solutionProviderService;
         $this->countryService = $countryService;
+        $this->checkPermissionService = $checkPermissionService;
     }
 
     /**
@@ -23,7 +25,8 @@ class SolutionProviderController extends Controller
     public function index()
     {
         $providers =$this->solutionProviderService->getAllActiveSolutionProvider();
-        return view('admin.solutionProviders',compact('providers'));
+        $isAuthorize = $this->checkPermissionService->checkPermission();
+        return view('admin.solutionProviders',compact('providers','isAuthorize'));
     }
 
     /**

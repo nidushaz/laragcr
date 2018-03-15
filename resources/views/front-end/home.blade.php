@@ -3,43 +3,91 @@
 @section('banner-image',asset($banner->getImage()))
 
     @section('content')
-
+        <style>.overlay p{color:#fff!important}</style>
         <section class="secMrgTop">
+
+
             <div class="feature">
-                <div class="container">
+                <div class="">
                     <div class="row">
-                        <div class="flt"><h2>GCR Eco System</h2></div>
-                        <div class="flt">
-                         <p>GCR is Global Channel Resources, bridging the gaps between solution providers and global channel partners.,<br/>
-                    We collaborate with worldwide cloud-based/networking solution providers to enable channel partners providing IoT solutions and cloud services.</p>
+						<div class="col-md-2 col-sm-2 col-xs-12">
+                            @isset($ads)
+                                @if(!@empty($ads))
+                                <div class="banrAd">
+                                    <img src="{{asset($ads[0]->getImage())}}" class="img-responsive image">
+									<div class="ad-leftCorn"><i class="fa fa-info-circle" aria-hidden="true"> Ads </i>
+</div>
+                                    <div class="overlay">
+                                        {!! $ads[0]->getAddDetail() !!}
+                                    </div>
+                                </div>
+                                    @else
+                                    not
+                                @endif
+                            @endisset
+						</div>
+						<div class="col-md-8 col-sm-8 col-xs-12">
+						<div class="flt"><h2>GCR Eco System</h2>
+							<hr>
+							
+						<div class="flt">
+                         <p>{!! $content->getDescription() !!}</p>
                         </div>
-                    </div>
-				<div class="grid">
+						
+						<div class="grid">
                     <div class="text-center">
-                    <div style=" float: left; margin-right: 10px;"> 
-						<img src="{{asset('images/front-images/vart-text.png')}}" class="img-responsive" alt="socail-vsit">
+					
+					
+                    
+					
+					
+					<div class="bx-wrapper">
+					<div style=" float: left; margin-right: 10px;"> 
+						<img src="{{asset('images/front-images/vart-text.png')}}" class="img-responsive solumobhide" alt="socail-vsit">
 					</div>
-                        @forelse($solutions as $solution)
+	
+	<div class="bxslider">
+    @forelse($solutions as $solution)
+
+      <div class="fortSolut" >
+            <div class="hi-icon-wrap hi-icon-effect wow" data-wow-duration="1000ms" data-wow-delay="300ms">
+                <a href="{{route('solutions.catalog')}}" >
+				<figure class="effect-zoe toggler">
+                <img src="{{asset($solution->getImage())}}" class="img-responsive" alt="solu-img1">
+				<figcaption>
+				<h2>{{$solution->getName()}}</h2>
+				<p>{!! \Illuminate\Support\Str::words($solution->getDescription(),10,'...') !!}</p>
+			</figcaption>	
+		</figure>
+                </a>
+      </div>
+     </div>
+    @empty
+@endforelse
+</div>
+	
+	
+	
+	
+
+					
+</div>					
+					
+					
+					
+					
+
+                       
                         
-                        <div class="fortSolut">
-                            <div class="hi-icon-wrap hi-icon-effect wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-							<figure class="effect-zoe toggler">
-                                <img src="{{asset($solution->getImage())}}" class="img-responsive" alt="solu-img1">
-								<figcaption>
-									<h2>{{$solution->getName()}}</h2>
-									<p>{!! \Illuminate\Support\Str::words($solution->getDescription(),10,'...') !!}</p>
-									</figcaption>	
-							</figure>
-                            </div>
-                        </div>
-						@empty
-                        @endforelse
+                        
+						
 							
                     </div>
 					 <div class="clearfix"></div>
 				 <div class="og-expander">
 					<div class="row">
-					<span class="closebtn">X</span>
+					
+					<a title="Close" class="fancybox-item closebtn fancybox-close" href="javascript:;">X</a>
 						<div class="col-md-12 col-sm-12 col-xs-12 ">
 						
 						<p><a href="#">Content</a></p>
@@ -47,8 +95,30 @@
 					</div>
 				 </div>
 				</div>
+						
+						</div>
+						
+						</div>
+                        <!-- -->
+						<div class="col-md-2 col-sm-2 col-xs-12">
+                            @isset($ads)
+							<div class="banrAd">
+                              <img src="{{asset($ads[1]->getImage())}}" class="img-responsive image">
+							  <div class="ad-leftCorn"><i class="fa fa-info-circle" aria-hidden="true"> Ads </i>
+</div>
+						      <div class="overlay">{!! $ads[1]->getAddDetail() !!}</div>
+                            </div>
+                            @endisset
+						</div>
+					
+                        
+                        
+                    </div>
+				
                 </div>
             </div>
+
+
         </section>
 
 
@@ -156,7 +226,10 @@
                 <div class="col-md-4 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <h1>Let’s Get Social</h1>
                     <div class="clearfix"></div>
-                    <img src="{{asset('images/front-images/socail-vsit.jpg')}}" class="img-responsive" alt="socail-vsit"> </div>
+                    <img src="{{asset('images/front-images/socail-vsit.jpg')}}" class="img-responsive" alt="socail-vsit">
+                    {{--<div class="fb-page" data-href="https://www.facebook.com/pages/GCR-cloud/348980468582498" data-tabs="timeline" data-width="390" data-height="290" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/pages/GCR-cloud/348980468582498" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/pages/GCR-cloud/348980468582498">Facebook</a></blockquote></div>--}}
+                </div>
+
             </div>
         </div>
 

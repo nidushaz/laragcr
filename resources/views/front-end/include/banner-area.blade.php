@@ -1,14 +1,15 @@
 <div class="carousel slide">
     <div class="carousel-inner">
-        <div class="item active mobSlide" style="background-image: url(@yield('banner-image')); background-size: cover;">
+
+        <div class="item active mobSlide @if(Route::current()->getName()!='home') inBner  @endif" style="background-image: url(@yield('banner-image')); background-size: contain;">
             <div class="">
                 <div class="row slide-margin">
                     <div class="col-sm-12">
                         <div class="carousel-content">
-                            <h2 class="animation animated-item-1">
+                            <!--<h2 class="animation animated-item-1">
                                 @if(@isset($banner)) {{$banner->getHeading()}} @else Banner Not Set @endif
                             </h2>
-                            <!-- <p>(Kindly Changes the background to put this message asthetic way)</p>-->
+                             <p>(Kindly Changes the background to put this message asthetic way)</p>-->
                         </div>
                     </div>
                 </div>
@@ -28,7 +29,7 @@
                     </div>
                 </div>-->
 
-                <div class="row">
+                <!--<div class="row">
                     <div class="col-sm-12 col-md-12 pdn-left pdn-right">
                         @isset($ads)
                             @foreach($ads as $ad)
@@ -39,8 +40,10 @@
                             @endforeach
                         @endisset
                     </div>
-                </div>
+                </div>-->
             </div>
+			
+		
         </div>
         <!--/.item-->
     </div>

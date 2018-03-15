@@ -5,13 +5,15 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\SolutionTypeService;
+use App\Services\CheckPermissionService;
 class SolutionTypeController extends Controller
 {
 
-    private $solutionTypeService;
-    public function __construct(SolutionTypeService $solutionTypeService)
+    private $solutionTypeService,$checkPermissionService;
+    public function __construct(SolutionTypeService $solutionTypeService,CheckPermissionService $checkPermissionService)
     {
         $this->solutionTypeService = $solutionTypeService;
+        $this->checkPermissionService = $checkPermissionService;
     }
 
     /**
@@ -22,7 +24,8 @@ class SolutionTypeController extends Controller
     public function index()
     {
         $types = $this->solutionTypeService->getAllActiveSolutionType();
-        return view('admin.solutionType',compact('types'));
+        $isAuthorize = $this->checkPermissionService->checkPermission();
+        return view('admin.solutionType',compact('types','isAuthorize'));
     }
 
     /**

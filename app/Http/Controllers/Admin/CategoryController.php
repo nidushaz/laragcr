@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\CategoryService;
-
+use App\Services\CheckPermissionService;
 class CategoryController extends Controller
 {
-    protected $categoryService;
-    public function __construct(CategoryService $categoryService)
+    protected $categoryService,$checkPermissionService;
+    public function __construct(CategoryService $categoryService,CheckPermissionService $checkPermissionService)
     {
         $this->categoryService = $categoryService;
+        $this->checkPermissionService = $checkPermissionService;
     }
 
     /**
@@ -22,7 +23,8 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = $this->categoryService->getAllCategory();
-        return view('admin.category',compact('categories'));
+        $isAuthorize = $this->checkPermissionService->checkPermission();
+        return view('admin.category',compact('categories','isAuthorize'));
     }
 
     /**

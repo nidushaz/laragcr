@@ -17,43 +17,68 @@
                     </div>
                 </div>
 
-                <div class="col-md-8 col-sm-8 col-xs-12 mobPdn">
+                <div class="col-md-8 col-sm-8 col-xs-12 mobPdn desk">
 				
 				<div class="collapse navbar-collapse cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="main-nav">
                         <ul class="nav navbar-nav pull-left">
 
                             <!-- Mobile Menu Title -->
                                                         <!-- Simple Menu Item -->
-                            <li class="dropdown simple-menu">
+                            <!--<li class="dropdown simple-menu">
                                 <a href="<?php echo e(route('solutions')); ?>" class="dropdown-toggle">Solutions</a>
-                            </li>
+                            </li>-->
 							<!-- Simple Menu Item -->
-                            <li class="dropdown simple-menu">
-                                <a href="<?php echo e(route('solutions')); ?>" class="dropdown-toggle" >e-Catalog</a>
+                            <li class="dropdown simple-menu ">
+                                <a href="<?php echo e(route('solutions.catalog')); ?>" class="dropdown-toggle <?php if(Route::current()->getName()=='solutions.catalog'): ?> active-menu  <?php endif; ?>" >Solutions</a>
                             </li>
 							<li class="dropdown simple-menu">
-                                <a href="<?php echo e(route('experience-centre')); ?>" class="dropdown-toggle">Experience Centre</a>
+                                <a href="<?php echo e(route('experience-centre')); ?>" class="dropdown-toggle <?php if(Route::current()->getName()=='experience-centre'): ?> active-menu  <?php endif; ?>">Experience Centre</a>
                             </li>
 							<li class="dropdown simple-menu">
-                                <a href="<?php echo e(route('contact')); ?>" class="dropdown-toggle">Support</a>
+                                <a href="<?php echo e(route('support')); ?>" class="dropdown-toggle <?php if(Route::current()->getName()=='support'): ?> active-menu  <?php endif; ?>">Support</a>
                             </li>
 							<li class="dropdown simple-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Partners <i class="fa fa-angle-down"></i></a>
+                                <a href="#" class="dropdown-toggle <?php if(Route::current()->getName()=='solution-partners' || Route::current()->getName()=='channel-partners'): ?> active-menu  <?php endif; ?>" data-toggle="dropdown">Partners <i class="fa fa-angle-down"></i></a>
 								<ul class="dropdown-menu" role="menu">
-                                    <li><a href="<?php echo e(route('channel-partners')); ?>">Partners 1</a></li>
-                                    <li><a href="<?php echo e(route('channel-partners')); ?>">Partners 2</a></li>
+                                    <li><a href="<?php echo e(route('channel-partners')); ?>" class="Navshow">Integration Partners</a></li>
+                                    <li class=""><a href="<?php echo e(route('solution-partners')); ?>">Technology Partners</a></li>
                                   
                                 </ul>
                             </li>
+                            <li class="dropdown simple-menu">
+                                <a href="<?php echo e(route('news')); ?>" class="dropdown-toggle <?php if(Route::current()->getName()=='news'): ?> active-menu  <?php endif; ?>" role="button">News</a>
+                            </li>
 							<li class="dropdown simple-menu">
-                                <a href="<?php echo e(route('about-GCR')); ?>" class="dropdown-toggle" role="button">About GCR</a>
+                                <a href="<?php echo e(route('about-GCR')); ?>" class="dropdown-toggle <?php if(Route::current()->getName()=='about-GCR'): ?> active-menu  <?php endif; ?>" role="button">About GCR</a>
                             </li>
 
+                            <li class="dropdown simple-menu">
+                                <a href="<?php echo e(route('contact')); ?>" class="dropdown-toggle <?php if(Route::current()->getName()=='contact'): ?> active-menu  <?php endif; ?>" role="button">Contact Us</a>
+                            </li>
+							
+							<li class="dropdown simple-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-lock"></i> login <i class="fa fa-angle-down"></i></a>
+								<ul class="dropdown-menu" role="menu">
+                                    <li><a href="http://www.gcrcpsp.com/guest/sign_up/form" target="_balnk" class="Navshow">CPSP</a></li>
+                                    <li class=""><a href="javascript:void(0)">Forum</a></li>
+                                  
+                                </ul>
+                            </li>
+							
+							
                             <!-- Simple Menu Item -->
-                            
-                            
-
+                         
                         </ul>
+						
+						<div class="clearfix"></div>
+
+                    
+						
+						 
+                         
+                         
+						
+                            
                     </div>
 				
 				

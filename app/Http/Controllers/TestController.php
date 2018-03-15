@@ -22,8 +22,34 @@ class TestController extends Controller
      */
     public function index()
     {
-        return "hi user";
-    }
+        /* gets the data from a URL */
+        function get_data($url) {
+            $ch = curl_init();
+            $timeout = 5;
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+            $data = curl_exec($ch);
+            curl_close($ch);
+            return $data;
+        }
+                $returned_content = get_data('http://   www.gcrcloud.com/solutions-2');
+        $keywords = array();
+        $domain = array('http://www.gcrcloud.com/solutions');
+        $doc = new \DOMDocument();
+        $doc->preserveWhiteSpace = FALSE;
+        foreach ($domain as $key => $value) {
+            @$doc->loadHTMLFile($value);
+
+            $anchor_tags = $doc->getElementsByTagName('body');
+
+            foreach ($anchor_tags as $tag) {
+                $keywords[] = strtolower($tag->nodeValue);
+            }
+        }
+       print_r($keywords);
+
+}
 
     /**
      * Show the form for creating a new resource.

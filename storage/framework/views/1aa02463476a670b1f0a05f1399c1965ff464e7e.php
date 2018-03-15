@@ -20,7 +20,9 @@
                             <h4 class="m-t-0 header-title"><b>Providers List</b></h4>
                         </div>
                         <div class="col-sm-2">
+                            <?php if(in_array('providers.create', $isAuthorize)): ?>
                             <a class="btn btn-default waves-effect waves-light" href="<?php echo e(route('providers.create')); ?>"><i class="fa fa-plus"></i> Add Provider</a>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -62,9 +64,11 @@
                                      </span>
                                 </td>
                                 <td>
+                                    <?php if(in_array('providers.edit', $isAuthorize)): ?>
                                     <a href="<?php echo e(route('providers.edit',['$providers' => $provider->getId()])); ?>" class="btn btn-icon waves-effect waves-light btn-white">
                                         <i class="fa fa-edit"></i>
                                     </a>
+                                    <?php endif; ?>
                                     &nbsp;&nbsp;&nbsp;
                                     <!-- <button class="btn btn-icon waves-effect waves-light btn-white	">		<i class="fa fa-remove"></i>
                                     </button> -->

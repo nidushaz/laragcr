@@ -31,6 +31,9 @@
                                     <label class="control-label">First Name</label>
                                     <input class="form-control" required="required" placeholder="First Name" type="text" name="firstName"  value="@isset($user){{$user->getFirstName()}} @endisset">
                                     {{csrf_field()}}
+                                    @isset($user)
+                                        <input type="hidden" name="_method" value="PUT">
+                                    @endisset
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -42,12 +45,14 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label class="control-label">Profile Pic</label>
-                                    <input class="filestyle" type="file" name="profilePic">
+                                    <input class="filestyle"  id="banner-img" type="file" name="profilePic">
                                 </div>
                             </div>
                             <div class="col-md-2">
-                                <div class="form-group">
-                                   <img src="">
+                                <div class="form-group" id="img-preview">
+                                    @isset($user)
+                                   <img class="img-thumbnail thumb-lg" src="{{asset($user->getProfilePic())}}">
+                                        @endisset
                                 </div>
                             </div>
                         </div>
@@ -67,7 +72,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="control-label">Password</label>
-                                    <input class="form-control" required="required" placeholder="Password" type="password" name="password">
+                                    <input class="form-control" required="required" placeholder="Password" type="password" name="password" value="@isset($user){{$user->getPassword()}} @endisset" @isset($user) readonly @endisset>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +83,14 @@
                                     <select class="form-control select2" name="role">
                                         <option value="">Choose Role</option>
                                         @foreach($roles as $role)
-                                            <option value="{{$role->getId()}}">{{$role->getRole()}}</option>
+                                            <option value="{{$role->getId()}}"
+                                                    @isset($user)
+                                                        @foreach($user->getAdminRole() as $roleSelected)
+                                                            @if($role->getId()==$roleSelected->getRoleId()->getId()) selected="selected" @else  @endif
+                                                                @endforeach
+                                                    @endisset
+                                            >{{$role->getRole()}}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>

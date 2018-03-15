@@ -10,17 +10,18 @@ use App\Services\SolutionTypeService;
 use App\Services\SolutionProviderService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Services\CheckPermissionService;
 class ProductController extends Controller
 {
-    private $productService, $countryService, $industryService, $productTypeService, $solutionTypeService,$solutionProvider;
-    public function __construct(ProductService $productService, CountryService $countryService, IndustryService $industryService, ProductTypeService $productTypeService, SolutionTypeService $solutionTypeService,SolutionProviderService $solutionProviderService){
+    private $productService, $countryService, $industryService, $productTypeService, $solutionTypeService,$solutionProvider,$checkPermissionService;
+    public function __construct(ProductService $productService, CountryService $countryService, IndustryService $industryService, ProductTypeService $productTypeService, SolutionTypeService $solutionTypeService,SolutionProviderService $solutionProviderService,CheckPermissionService $checkPermissionService){
         $this->productService = $productService;
         $this->productTypeService = $productTypeService;
         $this->countryService = $countryService;
         $this->industryService = $industryService;
         $this->solutionTypeService = $solutionTypeService;
         $this->solutionProvider =  $solutionProviderService;
+        $this->checkPermissionService = $checkPermissionService;
     }
 
     /**
@@ -30,7 +31,8 @@ class ProductController extends Controller
      */
     public function index(){
         $solutions = $this->productService->getAllProducts();
-        return view('admin.products', compact('solutions'));
+        $isAuthorize = $this->checkPermissionService->checkPermission();
+        return view('admin.products', compact('solutions','isAuthorize'));
     }
 
     /**

@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\ProductTypeService;
-
+use App\Services\CheckPermissionService;
 class ProductTypeController extends Controller
 {
-    protected $productTypeService;
-    public function __construct(ProductTypeService $productTypeService)
+    protected $productTypeService,$checkPermissionService;
+    public function __construct(ProductTypeService $productTypeService,CheckPermissionService $checkPermissionService)
     {
         $this->productTypeService  = $productTypeService;
+        $this->checkPermissionService = $checkPermissionService;
     }
 
     /**
@@ -22,7 +23,8 @@ class ProductTypeController extends Controller
     public function index()
     {
         $productType = $this->productTypeService->getAllActiveProductType();
-        return view('admin.productType',compact('productType'));
+        $isAuthorize = $this->checkPermissionService->checkPermission();
+        return view('admin.productType',compact('productType','isAuthorize'));
     }
 
     /**

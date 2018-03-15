@@ -1,43 +1,92 @@
 <?php $__env->startSection('banner-image',asset($banner->getImage())); ?>
 
     <?php $__env->startSection('content'); ?>
-
+        <style>.overlay p{color:#fff!important}</style>
         <section class="secMrgTop">
+
+
             <div class="feature">
-                <div class="container">
+                <div class="">
                     <div class="row">
-                        <div class="flt"><h2>GCR Eco System</h2></div>
-                        <div class="flt">
-                         <p>GCR is Global Channel Resources, bridging the gaps between solution providers and global channel partners.,<br/>
-                    We collaborate with worldwide cloud-based/networking solution providers to enable channel partners providing IoT solutions and cloud services.</p>
+						<div class="col-md-2 col-sm-2 col-xs-12">
+                            <?php if(isset($ads)): ?>
+                                <?php if(!@empty($ads)): ?>
+                                <div class="banrAd">
+                                    <img src="<?php echo e(asset($ads[0]->getImage())); ?>" class="img-responsive image">
+									<div class="ad-leftCorn"><i class="fa fa-info-circle" aria-hidden="true"> Ads </i>
+</div>
+                                    <div class="overlay">
+                                        <?php echo $ads[0]->getAddDetail(); ?>
+
+                                    </div>
+                                </div>
+                                    <?php else: ?>
+                                    not
+                                <?php endif; ?>
+                            <?php endif; ?>
+						</div>
+						<div class="col-md-8 col-sm-8 col-xs-12">
+						<div class="flt"><h2>GCR Eco System</h2>
+							<hr>
+							
+						<div class="flt">
+                         <p><?php echo $content->getDescription(); ?></p>
                         </div>
-                    </div>
-				<div class="grid">
+						
+						<div class="grid">
                     <div class="text-center">
-                    <div style=" float: left; margin-right: 10px;"> 
-						<img src="<?php echo e(asset('images/front-images/vart-text.png')); ?>" class="img-responsive" alt="socail-vsit">
+					
+					
+                    
+					
+					
+					<div class="bx-wrapper">
+					<div style=" float: left; margin-right: 10px;"> 
+						<img src="<?php echo e(asset('images/front-images/vart-text.png')); ?>" class="img-responsive solumobhide" alt="socail-vsit">
 					</div>
-                        <?php $__empty_1 = true; $__currentLoopData = $solutions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $solution): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+	
+	<div class="bxslider">
+    <?php $__empty_1 = true; $__currentLoopData = $solutions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $solution): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+
+      <div class="fortSolut" >
+            <div class="hi-icon-wrap hi-icon-effect wow" data-wow-duration="1000ms" data-wow-delay="300ms">
+                <a href="<?php echo e(route('solutions.catalog')); ?>" >
+				<figure class="effect-zoe toggler">
+                <img src="<?php echo e(asset($solution->getImage())); ?>" class="img-responsive" alt="solu-img1">
+				<figcaption>
+				<h2><?php echo e($solution->getName()); ?></h2>
+				<p><?php echo \Illuminate\Support\Str::words($solution->getDescription(),10,'...'); ?></p>
+			</figcaption>	
+		</figure>
+                </a>
+      </div>
+     </div>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+<?php endif; ?>
+</div>
+	
+	
+	
+	
+
+					
+</div>					
+					
+					
+					
+					
+
+                       
                         
-                        <div class="fortSolut">
-                            <div class="hi-icon-wrap hi-icon-effect wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-							<figure class="effect-zoe toggler">
-                                <img src="<?php echo e(asset($solution->getImage())); ?>" class="img-responsive" alt="solu-img1">
-								<figcaption>
-									<h2><?php echo e($solution->getName()); ?></h2>
-									<p><?php echo \Illuminate\Support\Str::words($solution->getDescription(),10,'...'); ?></p>
-									</figcaption>	
-							</figure>
-                            </div>
-                        </div>
-						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                        <?php endif; ?>
+                        
+						
 							
                     </div>
 					 <div class="clearfix"></div>
 				 <div class="og-expander">
 					<div class="row">
-					<span class="closebtn">X</span>
+					
+					<a title="Close" class="fancybox-item closebtn fancybox-close" href="javascript:;">X</a>
 						<div class="col-md-12 col-sm-12 col-xs-12 ">
 						
 						<p><a href="#">Content</a></p>
@@ -45,8 +94,30 @@
 					</div>
 				 </div>
 				</div>
+						
+						</div>
+						
+						</div>
+                        <!-- -->
+						<div class="col-md-2 col-sm-2 col-xs-12">
+                            <?php if(isset($ads)): ?>
+							<div class="banrAd">
+                              <img src="<?php echo e(asset($ads[1]->getImage())); ?>" class="img-responsive image">
+							  <div class="ad-leftCorn"><i class="fa fa-info-circle" aria-hidden="true"> Ads </i>
+</div>
+						      <div class="overlay"><?php echo $ads[1]->getAddDetail(); ?></div>
+                            </div>
+                            <?php endif; ?>
+						</div>
+					
+                        
+                        
+                    </div>
+				
                 </div>
             </div>
+
+
         </section>
 
 
@@ -154,7 +225,10 @@
                 <div class="col-md-4 col-xs-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <h1>Let’s Get Social</h1>
                     <div class="clearfix"></div>
-                    <img src="<?php echo e(asset('images/front-images/socail-vsit.jpg')); ?>" class="img-responsive" alt="socail-vsit"> </div>
+                    <img src="<?php echo e(asset('images/front-images/socail-vsit.jpg')); ?>" class="img-responsive" alt="socail-vsit">
+                    
+                </div>
+
             </div>
         </div>
 

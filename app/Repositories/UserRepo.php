@@ -9,6 +9,7 @@
 namespace App\Repositories;
 
 use App\Entities\User;
+use App\Entities\UserRole;
 use Doctrine\ORM\EntityManagerInterface;
 class UserRepo
 {
@@ -25,12 +26,12 @@ class UserRepo
 
     public function getAllUsers()
     {
-        // TODO: Implement getAllUsers() method.
+       return $this->em->getRepository(User::class)->findBy(['deleted'=>0,'isAdmin'=>null]);
     }
 
     public function getUserById($id)
     {
-        // TODO: Implement getUserById() method.
+        return $this->em->getRepository(User::class)->find($id);
     }
 
     public function saveUser($data)
@@ -40,6 +41,13 @@ class UserRepo
         return true;
     }
 
+    public function removeExistingUserRole($id){
+        $userRoles = $this->em->getRepository(UserRole::class)->findBy(['userId'=>$id]);
+        foreach ($userRoles as $userRole){
+            $this->em->remove($userRole);
+        }
+        $this->em->flush();
+    }
     public function updateUser($data)
     {
         // TODO: Implement updateUser() method.

@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\IndustryService;
+use App\Services\CheckPermissionService;
 class IndustryController extends Controller
 {
-    protected $industryService;
-    public  function __construct(IndustryService $industryService)
+    protected $industryService,$checkPermissionService;
+    public  function __construct(IndustryService $industryService,CheckPermissionService $checkPermissionService)
     {
         $this->industryService = $industryService;
+        $this->checkPermissionService = $checkPermissionService;
     }
 
     /**
@@ -22,7 +24,8 @@ class IndustryController extends Controller
     {
 
         $industries = $this->industryService->getAllActiveIndustry();
-        return view('admin.industry',compact('industries'));
+        $isAuthorize = $this->checkPermissionService->checkPermission();
+        return view('admin.industry',compact('industries','isAuthorize'));
     }
 
     /**
